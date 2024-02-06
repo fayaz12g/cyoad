@@ -1,5 +1,13 @@
 [
   {
+    "emotionA": "Happy",
+    "emotionB": "Idle",
+    "emotionC": "Sad",
+    "emotionD": "Mad",
+    "emotionE": "Fear"
+  },
+  
+  {
     "id": "CS_A",
     "emotion": "Happy",
     "option": "Continue Staying Close to Mom",
