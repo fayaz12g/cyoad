@@ -8,7 +8,7 @@ function Menu({ setCurrentPage, audioRef, backgroundMusic }) {
       <img className="logo" src={LycleLogo} alt="Lycle Logo"></img>
       <div className="menuButtons">
         <button onClick={() => {setCurrentPage("Selection"); backgroundMusic ? audioRef.current.play() : audioRef.current++}}>Play</button>
-        <button onClick={() => setCurrentPage("Settings")}>Audio</button>
+        <button onClick={() => setCurrentPage("Settings")}>Settings</button>
       </div>
       <div className="credits">
         <div>Fayaz & Christopher</div>

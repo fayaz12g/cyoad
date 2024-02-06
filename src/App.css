@@ -6,20 +6,32 @@
 
 .sliding-background {
   position: fixed;
-  background-color: #f3c801;
+  top: var(--animation-percent, 100%);
+  left: 0;
+  background-color: var(--background-color, #f3c801);
   background-image: url('./images/Menu_Pattern.png');
   z-index: -1;
-  height: 500%;
-  width: 100%;
-  animation: slide 200s linear infinite;
+  height: 999%;
+  width: 999%;
+  animation: var(--slide-animation, slide-down) var(--animation-speed) linear infinite;
 }
 
-@keyframes slide {
+
+@keyframes slide-up {
   0% {
-    transform: translate3d(0, -1400px, 0);
+    transform: translateY(0);
   }
   100% {
-    transform: translate3d(0, 0, 0); /* The image width */
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 

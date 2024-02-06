@@ -15,6 +15,9 @@ function App() {
 
   const [ gameSounds, setGameSounds ] = useState(true);
   const [ backgroundMusic, setBackgroundMusic ] = useState(true);
+  const [animationSpeed, setAnimationSpeed] = useState(999);
+  const [backgroundColor, setBackgroundColor] = useState('#f3c801');
+  
 
   const [ animalType, setAnimalType ] = useState("Undefined");
   const [ animalColor, setAnimalColor ] = useState("White");
@@ -43,17 +46,22 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div class="sliding-background"></div>
+      <div className="App">
+
+      <div class="sliding-background" style={{ '--animation-speed': `${animationSpeed}s`,'--background-color': `${backgroundColor}` }}></div>
       <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'></link>
       
       {(currentPage === 'Home') && <Menu setCurrentPage={setCurrentPage} audioRef={audioRef} backgroundMusic={backgroundMusic}></Menu>}
-      {(currentPage === 'Settings') && <Settings setCurrentPage={setCurrentPage}
+      {(currentPage === 'Settings') && <Settings setCurrentPage={setCurrentPage} 
                                                 gameSounds={gameSounds}
                                                 setGameSounds={setGameSounds}
                                                 audioRef={audioRef}
                                                 backgroundMusic={backgroundMusic}
-                                                setBackgroundMusic={setBackgroundMusic}>
+                                                setBackgroundMusic={setBackgroundMusic}
+                                                setAnimationSpeed={setAnimationSpeed} 
+                                                setBackgroundColor={setBackgroundColor}
+                                                backgroundColor={backgroundColor}
+                                                animationSpeed={animationSpeed} >
                                         </Settings>}
       {(currentPage === 'Game') && <Game setCurrentPage={setCurrentPage}
                                         type={animalType}
@@ -79,6 +87,7 @@ function App() {
       
       
     </div>
+  
   );
 }
 
