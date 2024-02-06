@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/static/css/main.e1f72b1e.css",
-    "main.js": "/static/js/main.e02588dc.js",
-    "static/media/menu.wav": "/static/media/menu.9adcc6146f7d10806295.wav",
+    "main.js": "/static/js/main.4126b9c5.js",
     "static/media/Lycle_Logo.png": "/static/media/Lycle_Logo.764431ea5696d2d7e8d7.png",
+    "static/media/menu.mp3": "/static/media/menu.c14327c879b71ff787ce.mp3",
     "static/media/Penguin_Stencil.png": "/static/media/Penguin_Stencil.8816ade4c8fd518ab834.png",
     "static/media/Penguin_Red.png": "/static/media/Penguin_Red.dcd666e1fb3f8b2e4772.png",
     "static/media/Penguin_White.png": "/static/media/Penguin_White.0d9b2339ed87dea198aa.png",
@@ -55,10 +55,10 @@
     "static/media/bird_fear.mp3": "/static/media/bird_fear.5bd12a6128e538befd35.mp3",
     "index.html": "/index.html",
     "main.e1f72b1e.css.map": "/static/css/main.e1f72b1e.css.map",
-    "main.e02588dc.js.map": "/static/js/main.e02588dc.js.map"
+    "main.4126b9c5.js.map": "/static/js/main.4126b9c5.js.map"
   },
   "entrypoints": [
     "static/css/main.e1f72b1e.css",
-    "static/js/main.e02588dc.js"
+    "static/js/main.4126b9c5.js"
   ]
 }
