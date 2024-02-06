@@ -74,7 +74,7 @@ function App() {
                                                           updateAnimalAttribute={updateAnimalAttribute}>
                                             </Customization>}
       <audio ref={audioRef} loop autoplay>
-        <source src={BackgroundMusicAudio} type="audio/songs/mp3" />
+        <source src={BackgroundMusicAudio} type="audio/mp3" />
       </audio>
       
       
