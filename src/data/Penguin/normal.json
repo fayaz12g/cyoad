@@ -1,5 +1,13 @@
 [
   {
+    "emotionA": "Happy",
+    "emotionB": "Idle",
+    "emotionC": "Sad",
+    "emotionD": "Mad",
+    "emotionE": "Fear"
+  },
+  
+  {
     "id": "NP_START",
     "emotion": "Happy",
     "option": "Try Being a Penguin Again",
