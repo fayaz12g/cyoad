@@ -1,0 +1,50 @@
+.App {
+  height: 100%;
+  font-family: 'Fredoka One';
+  overflow: hidden;
+}
+
+.sliding-background {
+  position: fixed;
+  background-color: #f3c801;
+  background-image: url('./images/Menu_Pattern.png');
+  z-index: -1;
+  height: 500%;
+  width: 100%;
+  animation: slide 200s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translate3d(0, -1400px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0); /* The image width */
+  }
+}
+
+button {
+  font-size: 4vh;
+  padding: 1vh 2vh;
+  color: #28392b;
+  background-color: #a3c78d;
+  border-color: #4c6c53;
+  background-image: url('./images/Button_Pattern.png');
+  border-radius: 2vh;
+  font-weight: bold;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 1px black;
+}
+
+button:hover {
+  background-color: rgb(164, 219, 131);
+  cursor: pointer;
+}
+
+button:active {
+  background-color: rgb(140, 181, 115);
+}
+
+.backgroundAnimal {
+  height: 400px;
+}

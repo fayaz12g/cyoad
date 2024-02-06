@@ -1,0 +1,7 @@
+.currentPlayer {
+  height: 60vh;
+  margin: auto;
+  position: fixed;
+  left: 2vw;
+  top: 15vh;
+}

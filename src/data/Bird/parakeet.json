@@ -1,0 +1,167 @@
+[
+  {
+    "id": "PB_START",
+    "emotion": "Happy",
+    "option": "Try Being a Parakeet Bird Again",
+    "story": "Tweet! You're a baby parakeet, born in a cozy shelter. The friendly shelter staff takes good care of you, and you spend your days chirping and playing with your fellow feathered friends. Life is simple and happy.",
+    "optionA": "PB_A",
+    "optionB": "PB_B"
+  },
+  {
+    "id": "PB_A",
+    "emotion": "Happy",
+    "option": "Long For Adoption",
+    "story": "You long for adoption in the shelter, trying to make friends with everyone you see. One day, a kind family walks into the shelter looking for a new pet. What will you do?",
+    "optionA": "PB_AA",
+    "optionB": "PB_AB"
+  },
+  {
+    "id": "PB_B",
+    "emotion": "Sad",
+    "option": "Hope to Stay in Shelter",
+    "story": "You want to stay in the shelter, enjoying the company of your bird buddies. You grow stronger and more colorful with each passing day. Slowly, however, your bird friends start to get adopted by strangers.",
+    "optionA": "PB_BA",
+    "optionB": "PB_BB"
+  },
+  {
+    "id": "PB_BA",
+    "emotion": "Mad",
+    "option": "Long for Return of Friends",
+    "story": "You long for your friends to return, never forgetting them. Days turn to weeks, and weeks turn to months, yet they never return. You start to grow mad that they haven't returned.",
+    "optionA": "PB_BAA",
+    "optionB": "PB_BAB"
+  },
+  {
+    "id": "PB_BAA",
+    "emotion": "Fear",
+    "option": "Hatch Sinister Plan",
+    "story": "You hatch a sinister plan to take revenge on the people. As soon as you are let out of the cage for a cleaning, you bite furiously at a human, but instead of falling to your command, they throw you out and you cannot survive on your own.",
+    "optionA": "PB_MENU",
+    "optionB": "PB_START"
+  },
+  {
+    "id": "PB_BAB",
+    "emotion": "Happy",
+    "option": "Let Go of Anger",
+    "story": "Anger is never a good thing. You decide to excersize caution, and let go of your anger, instead becoming a happy tweety bird. A fmily takes notice of this, and turns to possibly want you for adoption.",
+    "optionA": "PB_AA",
+    "optionB": "PB_A"
+  },
+  {
+    "id": "PB_BB",
+    "emotion": "Happy",
+    "option": "Seek Adoption",
+    "story": "You warm up to the idea of adoption, and start to make yourself open and friendly to human families. A family comes over to your cage one morning, what do you do?",
+    "optionA": "PB_AA",
+    "optionB": "PB_AAA"
+  },
+  {
+    "id": "PB_AA",
+    "emotion": "Happy",
+    "option": "Interact with the Family",
+    "story": "Excited about the potential for a new home, you interact with the family. They find you charming, and the children giggle at your antics. The family decides to adopt you! What's your next move?",
+    "optionA": "PB_AAA",
+    "optionB": "PB_AAB"
+  },
+  {
+    "id": "PB_AAA",
+    "emotion": "Happy",
+    "option": "Perch on the Finger",
+    "story": "You hop onto the finger of the family member, feeling a sense of security and warmth. They take you to your new home, where a comfortable cage and plenty of toys await. You spend your days chirping happily in your new abode.",
+    "optionA": "PB_AAAAA",
+    "optionB": "PB_AAAAB"
+  },
+  {
+    "id": "PB_AAAAA",
+    "emotion": "Happy",
+    "option": "Sing Cheerfully",
+    "story": "You sing your cheerful tunes, filling the house with happiness. The family adores your melodies, and you become a beloved member of their home. You live a long, happy life surrounded by love.",
+    "optionA": "PB_MENU",
+    "optionB": "PB_START"
+  },
+  {
+    "id": "PB_AAAAB",
+    "emotion": "Fear",
+    "option": "Hide in the Cage",
+    "story": "Feeling a bit overwhelmed, you decide to hide in your cage. The family gives you space, but over time, they work to earn your trust. Eventually, you come out and explore your new home. You grow to love your family and feel secure in your new environment.",
+    "optionA": "PB_AAAAA",
+    "optionB": "PB_AAAABB"
+  },
+  {
+    "id": "PB_AAAABB",
+    "emotion": "Idle",
+    "option": "Observe Cautiously",
+    "story": "You cautiously observe the family's activities, remaining on high alert. As time passes, you realize the family means no harm. Slowly, you become more comfortable and start to interact with them. Your newfound trust leads to a happy life with your adopted family.",
+    "optionA": "PB_AAAAA",
+    "optionB": "PB_AAAAB"
+  },
+  {
+    "id": "PB_AAB",
+    "emotion": "Sad",
+    "option": "Stay in the Cage",
+    "story": "Feeling a bit shy, you choose to stay in your cage. The family notices your hesitancy but respects your space. Over time, they work to earn your trust, and you eventually come out to explore your new home. You grow to love your family and feel secure in your new environment.",
+    "optionA": "PB_AAAAA",
+    "optionB": "PB_AABB"
+  },
+  {
+    "id": "PB_AABB",
+    "emotion": "Idle",
+    "option": "Observe Cautiously",
+    "story": "You cautiously observe the family's activities, remaining on high alert. As time passes, you realize the family means no harm. Slowly, you become more comfortable and start to interact with them. Your newfound trust leads to a happy life with your adopted family.",
+    "optionA": "PB_AAAAA",
+    "optionB": "PB_AAAAB"
+  },
+  {
+    "id": "PB_AABBB",
+    "emotion": "Mad",
+    "option": "Refuse Interaction",
+    "story": "You decide to keep your distance, refusing to interact with the family. They respect your choice but try to engage with you in various ways. Eventually, your curiosity gets the better of you, and you start to interact with the family. Over time, you become a joyful part of their home.",
+    "optionA": "PB_AAAAA",
+    "optionB": "PB_AABBB"
+  },
+  {
+    "id": "PB_AABBB",
+    "emotion": "Idle",
+    "option": "Observe Cautiously",
+    "story": "You cautiously observe the family's activities, remaining on high alert. As time passes, you realize the family means no harm. Slowly, you become more comfortable and start to interact with them. Your newfound trust leads to a happy life with your adopted family.",
+    "optionA": "PB_AAAAA",
+    "optionB": "PB_AABBB"
+  },
+  {
+    "id": "PB_AB",
+    "emotion": "Happy",
+    "option": "Interact with the Staff",
+    "story": "You decide to interact with the shelter staff, chirping and showing off your vibrant feathers. They are impressed with your charm and decide to recommend you to potential adopters. What will you do?",
+    "optionA": "PB_ABA",
+    "optionB": "PB_BAA"
+  },
+  {
+    "id": "PB_ABA",
+    "emotion": "Happy",
+    "option": "Meet Potential Adopters",
+    "story": "You eagerly meet the potential adopters, showcasing your playful nature. A family falls in love with you and decides to take you to your new home. What's your next move?",
+    "optionA": "PB_AAAA",
+    "optionB": "PB_AAAB"
+  },
+  {
+    "id": "PB_AAAA",
+    "emotion": "Happy",
+    "option": "Accept Adoption",
+    "story": "You live a happy life with your new owners.",
+    "optionA": "PB_MENU",
+    "optionB": "PB_START"
+  },
+  {
+    "id": "PB_AAAB",
+    "emotion": "Sad",
+    "option": "Hide in the Cage",
+    "story": "Feeling a bit overwhelmed, you decide to hide in your cage. The family gives you space, but over time, they work to earn your trust. Eventually, you come out and explore your new home. You grow to love your family and feel secure in your new environment.",
+    "optionA": "PB_AAAAA",
+    "optionB": "PB_AAAABB"
+  },
+  {
+    "id": "PB_MENU",
+    "emotion": "Idle",
+    "option": "Return to Main Menu"
+  }
+]

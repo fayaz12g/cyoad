@@ -1,0 +1,34 @@
+.characterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20vh;
+  gap: 5vh;
+}
+
+.characters {
+  display: flex;
+  flex-direction: row;
+  gap: 7vh;
+}
+
+.animal {
+  height: min(45vh, 20vw);
+  width: min(45vh, 20vw);
+  border: 1vh solid black;
+  border-radius: 6vh;
+  background-color: rgb(255, 166, 0);
+}
+
+.animal:hover {
+  background-color: rgb(255, 176, 30);
+  cursor: pointer;
+}
+
+.animal:active {
+  background-color: rgb(230, 150, 0);
+}
+
+.characterLabel {
+  font-size: 6vh;
+}

@@ -1,0 +1,74 @@
+.Customization {
+  text-align: center;
+}
+
+.customizationOptions {
+  position: fixed;
+  top: 23vh;
+  right: 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.customizeTitle {
+  font-size: 4vh;
+  margin-bottom: 3vh;
+}
+
+.colorLabel {
+  font-size: 3vh;
+}
+
+.colorSelection {
+  display: flex;
+  gap: 12px;
+}
+
+.color {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.color:hover {
+  cursor: pointer;
+}
+
+.blue {
+  background-color: #3f48cc;
+}
+.green {
+  background-color: #0ed145;
+}
+.red {
+  background-color: #ec1c24;
+}
+.white {
+  background-color: #ffffff;
+}
+.yellow {
+  background-color: #fff200;
+}
+.orange {
+  background-color: #ff7f27;
+}
+.july {
+  background: linear-gradient(red, blue, white);
+}
+.true {
+  border: 3px solid black;
+}
+
+.startContainer {
+  position: absolute;
+  bottom: 7vh;
+  width: 100%;
+}
+
+.startButton {
+  font-size: 6vh;
+  padding: 2vh;
+  background-color: #a3c78d;
+}

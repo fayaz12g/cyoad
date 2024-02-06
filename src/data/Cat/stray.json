@@ -1,0 +1,188 @@
+[
+  {
+    "id": "CS_A",
+    "emotion": "Happy",
+    "option": "Continue Staying Close to Mom",
+    "story": "You decide it isn't worth risking your life and getting lost, and stay home with your siblings. You wait for Mom to return. Hours turn to Days, and Days turn to Weeks. The 5 of you are barely getting by, eating small scraps here and there, but you feel weaker and weaker by the day.\nEventually, one day, you find the hunger too unbearable, and you topple over.",
+    "optionA": "CS_AA",
+    "optionB": "CS_AB"
+  },
+  {
+    "id": "CS_AA",
+    "emotion": "Idle",
+    "option": "Find Mom",
+    "story": "You cannot bear staying hungry anymore, and much worse, you cannot bear seeing your siblings hungry. You venture forth from your shelter to find where Mom has gone.\nYou walk down the streets of the neighborhood that start out as familiar but start to get confusing, until you smell something. It smells like food. What do you do?",
+    "optionA": "CS_AAA",
+    "optionB": "CS_AAB"
+  },
+  {
+    "id": "CS_AAA",
+    "emotion": "Sad",
+    "option": "Go Towards the Food",
+    "story": "You wander towards the smell of food. Your stomach turns as you excite over the thought of having a nice meal. As you approach the smell, you find a metal can filled with fresh tuna. You look around, then begin to chow down.\nSuddenly, a man emerges with a bag. Before you can react, he lifts your small kitten body into the bag and zips it closed. You sit in the bag for minutes, pacing around, terrified. Eventually, the bag is set down and unzipped.",
+    "optionA": "CS_AAAA",
+    "optionB": "CS_AABAB"
+  },
+  {
+    "id": "CS_AAB",
+    "emotion": "Happy",
+    "option": "Keep Walking",
+    "story": "Anxious that it could be a trap, you ignore the food smell. You can't trust just anyone these days. You continue walking down the road when you notice a friendly face in a window of one of the homes. It looks like another cat. What do you do?",
+    "optionA": "CS_AABA",
+    "optionB": "CS_AAAB"
+  },
+  {
+    "id": "CS_AABA",
+    "emotion": "Mad",
+    "option": "Go Towards the Cat",
+    "story": "If not friend, then why friend shaped? You go towards the friendly looking cat and exchange a meow. It doesn't even bat an eye, and seems to ignore you. From this encounter, you learn that not all cats are your friend, and you have to fend for yourself.\nLost in the streets, you continue to wander, living off scraps, and have lost your siblings. Years pass. One day, you are walking the street, when a stranger calls out to you to come over. This has happened before, and oftentimes they give you food, but this time, he is holding a bag and you are worried he might try to catnap you. What do you do?",
+    "optionA": "CS_AABAA",
+    "optionB": "CS_AABAB"
+  },
+  {
+    "id": "CS_AABAA",
+    "emotion": "Sad",
+    "option": "Go Towards the Man",
+    "story": "You've lived a decent life so might as well take some risks here and there! You greet the man and he seems friendly... until he puts you in a bag and you are jostled around as he moves!",
+    "optionA": "CS_AABAAA",
+    "optionB": "CS_AABAAB"
+  },
+  {
+    "id": "CS_AABAB",
+    "emotion": "Fear",
+    "option": "Run Away",
+    "story": "You don't know the man, so why risk it? You bolt down the street, running away with fear, when suddenly a large metal object rolls into you really fast.",
+    "optionA": "CS_MENU",
+    "optionB": "CS_START"
+  },
+  {
+    "id": "CS_AAAB",
+    "emotion": "Sad",
+    "option": "Keep Walking",
+    "story": "You don't know the cat and it doesn't know you, so why waste your time? You continue down the street, walking with fear, when suddenly a large metal object rolls into you really fast.",
+    "optionA": "CS_MENU",
+    "optionB": "CS_START"
+  },
+  {
+    "id": "CS_AB",
+    "emotion": "Sad",
+    "option": "Stay Home",
+    "story": "You decide it isn't worth risking your life and getting lost, and stay home with your siblings. You wait for Mom to return. Hours turn to Days, and Days turn to Weeks. The 5 of you are barely getting by, eating small scraps here and there, but you feel weaker and weaker by the day.\nEventually, one day, you find the hunger too unbearable, and you topple over.",
+    "optionA": "CS_MENU",
+    "optionB": "CS_START"
+  },
+  {
+    "id": "CS_B",
+    "emotion": "Happy",
+    "option": "Wander from the Litter",
+    "story": "As a tiny kitten you decide to wander away from your mother to see what the world has to see. Your mother calls out to you to come back, worried, but preoccupied with your 4 siblings, she can't catch up to you in time. You skedaddle away and are FREE.\nAs you wander the streets, you hear a man calling out to you. What do you do?",
+    "optionA": "CS_AABAA",
+    "optionB": "CS_AABAB"
+  },
+  {
+    "id": "CS_AAAA",
+    "emotion": "Happy",
+    "option": "Leave the Bag",
+    "story": "The curious young kitten you are, you leave the bag and start to take in your surroundings. The man is standing in front of you smiling, and you notice many new smells you haven't smelled before. Excited, you run around the house taking inventory.\nYears pass in your new home when something unusual happens... your owner has brought home a female hooman.",
+    "optionA": "CS_AAAAA",
+    "optionB": "CS_AAAAB"
+  },
+  {
+    "id": "CS_AABAAA",
+    "emotion": "Fear",
+    "option": "Stay in the Bag",
+    "story": "You don't know where you are and you aren't going to risk it. You are just a baby after all. You stay in the bag you were trapped in until the human starts to scoop you up out of the bag against your will. You close your eyes, scared of what you might see.",
+    "optionA": "CS_AABAAAA",
+    "optionB": "CS_AABAAB"
+  },
+  {
+    "id": "CS_AAAAB",
+    "emotion": "Fear",
+    "option": "HIDE!",
+    "story": "You don't know this hooman! You cannot trust this hooman! HIDE!\n\nTwo hours later and she is still here.",
+    "optionA": "CS_AAAAA",
+    "optionB": "CS_AAAABB"
+  },
+  {
+    "id": "CS_AAAABB",
+    "emotion": "Mad",
+    "option": "Remain Hidden",
+    "story": "You cannot trust this woman, you don't know one thing about her! You are hungy, scared, and angy. Hours pass and you remain hidden and your owner calls for you desperate. He is concerned because you have not eaten your food in a long time.",
+    "optionA": "CS_AAAABBA",
+    "optionB": "CS_AAAABBB"
+  },
+  {
+    "id": "CS_AABAAAA",
+    "emotion": "Fear",
+    "option": "PANICCCC",
+    "story": "Your heart rate climbs are you panic and try to break out of the bag. Before you know it, the world is becoming dizzy around you and fades to black...",
+    "optionA": "CS_MENU",
+    "optionB": "CS_START"
+  },
+  {
+    "id": "CS_AABAAB",
+    "emotion": "Happy",
+    "option": "Remain Calm",
+    "story": "Everything is okay! No matter what, you know you have the power of anime and god on your side. You wait until you are finally set down. The man lets you explore his house and you are pleasently surprised by the wonderful living quarters he is offering to you. The offer is too good to pass up, so you decide to move in with him.\n\nTwo years later, something unusual happens... your owner has brought home a female hooman.",
+    "optionA": "CS_AAAAA",
+    "optionB": "CS_AAAAB"
+  },
+  {
+    "id": "CS_AAAABBA",
+    "emotion": "Fear",
+    "option": "Remain Hidden",
+    "story": "Despite your hooman's desperate pleas for you to come out, you do not. You slowly feel famine take over, but live a life of fear of the woman that was in the house, and don't knwo if she's still there but won't risk it. Days pass and you get light headed and the world fades to black...",
+    "optionA": "CS_MENU",
+    "optionB": "CS_START"
+  },
+  {
+    "id": "CS_AAAABBB",
+    "emotion": "Idle",
+    "option": "Shyly Come Out",
+    "story": "Okay, you can trust your hooman, so if he calls you, everything must be okay, right? You are nervous, but you come out to eat your food. You see the woman in the other room and you stare at her, taking account of all her actions, studying her to see if she is safe. She seems okay...",
+    "optionA": "CS_AAAAA",
+    "optionB": "CS_AAAAB"
+  },
+  {
+    "id": "CS_AAAAA",
+    "emotion": "Happy",
+    "option": "Greet Her Excitedly",
+    "story": "How bad can the woman be? You walk up to her and sniff. She smells alright. Next you lean your neck up and let her touch the side of your head. Good pets! Yeah she's definitely a keeper, you approve. How do you wanna break the news of your blessing to Mr. Hooman?",
+    "optionA": "CS_AAAAAA",
+    "optionB": "CS_AAAAAB"
+  },
+  {
+    "id": "CS_AAAAAA",
+    "emotion": "Happy",
+    "option": "Meow",
+    "story": "You meow at Mr. Hooman and he laughs at how cute you are. Ultimatly, the three of you live a long healthy happily ever after.",
+    "optionA": "CS_MENU",
+    "optionB": "CS_START"
+  },
+  {
+    "id": "CS_AAAAAB",
+    "emotion": "Happy",
+    "option": "Purr",
+    "story": "You purr at Mr. Hooman and Miss Hooman is astonished at how cute you are. Ultimatly, the three of you live a long healthy happily ever after.",
+    "optionA": "CS_MENU",
+    "optionB": "CS_START"
+  },
+  {
+    "id": "CS_START",
+    "emotion": "Happy",
+    "option": "Try Being a Stray Cat Again",
+    "story": "MEOW! You awake into the world screaming as the light blinds you. Where are you? It's cold. You spend your first few weeks staying at your mother's side, she is going to protect you, she would never leave, right?",
+    "optionA": "CS_A",
+    "optionB": "CS_B"
+  },
+  {
+    "id": "CS_MENU",
+    "emotion": "Idle",
+    "story": "",
+    "option": "Return to Main Menu",
+    "optionA": "",
+    "optionB": ""
+  }
+
+
+]

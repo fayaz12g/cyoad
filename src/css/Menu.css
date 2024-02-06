@@ -1,0 +1,26 @@
+.Menu {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+.menuButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  margin: 3vh;
+}
+
+.logo {
+  height: 45vh;
+  padding: 10vh;
+}
+
+.credits {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-align: right;
+  font-size: 2vh;
+}

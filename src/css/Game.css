@@ -1,0 +1,44 @@
+.story {
+  font-size: 3vh;
+  width: 40vw;
+}
+
+.story.Blue {
+  filter: drop-shadow(4px 4px 5px #3f48cc);
+}
+.story.Green {
+  filter: drop-shadow(4px 4px 5px #0ed145ed);
+}
+.story.Red {
+  filter: drop-shadow(4px 4px 5px #ec1c24);
+}
+.story.White {
+  filter: drop-shadow(4px 4px 5px #ffffff);
+}
+.story.Yellow {
+  filter: drop-shadow(4px 4px 5px #fff200);
+}
+.story.Orange {
+  filter: drop-shadow(4px 4px 5px #ff7f27);
+}
+.story.July {
+  filter: drop-shadow(4px 4px 5px red);
+}
+
+.storyOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
+
+.progression {
+  position: fixed;
+  right: 12vw;
+  top: 22vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh;
+  
+}
