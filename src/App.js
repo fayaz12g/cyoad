@@ -7,7 +7,7 @@ import Game from './components/Game.js';
 import Selection from './components/Selection.js';
 import Customization from './components/Customization.js';
 
-import BackgroundMusicAudio from './audio/menu.wav';
+import BackgroundMusicAudio from './audio/songs/menu.mp3';
 
 function App() {
 
@@ -74,7 +74,7 @@ function App() {
                                                           updateAnimalAttribute={updateAnimalAttribute}>
                                             </Customization>}
       <audio ref={audioRef} loop autoplay>
-        <source src={BackgroundMusicAudio} type="audio/wav" />
+        <source src={BackgroundMusicAudio} type="audio/songs/mp3" />
       </audio>
       
       
