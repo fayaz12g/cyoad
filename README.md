@@ -1,7 +1,6 @@
-[![demo video]()](https://img.youtube.com/vi/-f12Tuu35Dw/0.jpg)
+[![demo video](https://img.youtube.com/vi/-f12Tuu35Dw/0.jpg)](https://www.youtube.com/watch?v=-f12Tuu35Dw)
 # Watch the Demo Video!
 
--f12Tuu35Dw
 ![Lycle Logo](src/images/Lycle_Logo.png)
 # [Play now at lycle.co!](https://www.lycle.co)
 
