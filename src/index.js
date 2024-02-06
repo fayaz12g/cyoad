@@ -9,3 +9,6 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+// npm install gh-pages --save-dev
+// npm run deploy
