@@ -52,7 +52,7 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
         <input
           type="range"
           id="animationSpeedSlider"
-          min="250"
+          min="0"
           max="1459"
           value={1479 - animationSpeed} // Invert the value
           onChange={(e) => handleAnimationSpeedChange(1480 - e.target.value)} // Invert the value again before passing it to the handler
