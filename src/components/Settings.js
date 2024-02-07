@@ -155,13 +155,13 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
             onChange={handleButtonTextOutlineThickChange}
           />
           <button 
-          style={{ fontFamily: customFont, backgroundColor: buttonColor, color: buttonTextColor, WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}` }} 
+          style={{ fontFamily: customFont, backgroundColor: buttonColor, WebkitTextFillColor: buttonTextColor, WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}` }} 
           >Preview!</button>
         </div>
       )}
       {activeTab === 'Patterns' && (
         <div className="options">
-          <div style={{ textAlign: "center", fontFamily: 'Fredoka One', color: "#FFFFFF", WebkitTextStroke: "1px #000000" }} className="settingsTitle">Patterns</div>
+          <div style={{ textAlign: "center", fontFamily: 'Fredoka One', WebkitTextFillColor: "#FFFFFF", WebkitTextStroke: "1px #000000" }} className="settingsTitle">Patterns</div>
           <div className="section">
             <div className="sectionTitle">Background Pattern Color</div>
             <input
