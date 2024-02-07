@@ -15,6 +15,7 @@ function App() {
 
   const [ gameSounds, setGameSounds ] = useState(true);
   const [ backgroundMusic, setBackgroundMusic ] = useState(true);
+  const [ showButtonPattern, setShowButtonPattern ] = useState(true);
   const [animationSpeed, setAnimationSpeed] = useState(999);
   const [backgroundColor, setBackgroundColor] = useState('#f3c801');
   const [buttonColor, setButtonColor] = useState('#a3c78d');
@@ -82,6 +83,7 @@ function App() {
                                                 buttonTextOutlineThick={buttonTextOutlineThick}
                                                 customFont={customFont}
                                                 buttonTextColor={buttonTextColor} 
+                                                showButtonPattern={showButtonPattern}
                                                 buttonHoverColor={buttonHoverColor}>
                                                 </Menu>}
       {(currentPage === 'Settings') && <Settings setCurrentPage={setCurrentPage} 
@@ -105,6 +107,8 @@ function App() {
                                                 buttonTextOutlineThick={buttonTextOutlineThick}
                                                 setCustomFont={setCustomFont}
                                                 customFont={customFont}
+                                                showButtonPattern={showButtonPattern}
+                                                setShowButtonPattern={setShowButtonPattern}
                                                 animationSpeed={animationSpeed} >
                                         </Settings>}
       {(currentPage === 'Game') && <Game setCurrentPage={setCurrentPage}
@@ -120,6 +124,7 @@ function App() {
                                         buttonTextOutlineColor={buttonTextOutlineColor}
                                         buttonTextOutlineThick={buttonTextOutlineThick}
                                         customFont={customFont}
+                                        showButtonPattern={showButtonPattern}
                                         setButtonColor={setButtonColor} >
                                    </Game>}
       {(currentPage === 'Selection') && <Selection setCurrentPage={setCurrentPage}
@@ -137,6 +142,7 @@ function App() {
                                                           buttonTextOutlineColor={buttonTextOutlineColor}
                                                           buttonTextOutlineThick={buttonTextOutlineThick}
                                                           customFont={customFont}
+                                                          showButtonPattern={showButtonPattern}
                                                           buttonTextColor={buttonTextColor} >
                                             </Customization>}
       <audio ref={audioRef} loop autoPlay>

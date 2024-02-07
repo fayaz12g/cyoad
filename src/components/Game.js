@@ -23,7 +23,7 @@ import PenguinMad from '../audio/emotions/penguin/penguin_mad.mp3';
 
 function Game({ setCurrentPage, type, color, emotion, species, updateAnimalAttribute, 
   gameSounds, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick,
-customFont, buttonHoverColor }) {
+customFont, buttonHoverColor, showButtonPattern }) {
  
     const BFRef = useRef(null);
   const BHRef = useRef(null);
@@ -155,14 +155,16 @@ customFont, buttonHoverColor }) {
     backgroundColor: isOP1Hovered ? buttonHoverColor : buttonColor,
     WebkitTextFillColor: buttonTextColor,
     fontFamily: customFont,
-    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
+    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`,
+    backgroundImage: showButtonPattern ? undefined : 'none'
   };
 
   const gameButtonStyle2 = {
     backgroundColor: isOP2Hovered ? buttonHoverColor : buttonColor,
     WebkitTextFillColor: buttonTextColor,
     fontFamily: customFont,
-    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
+    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`,
+    backgroundImage: showButtonPattern ? undefined : 'none'
   };
   return(
     <div className="Game">

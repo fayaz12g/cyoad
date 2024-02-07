@@ -1,17 +1,57 @@
 import '../css/Settings.css';
 import BackButton from './BackButton';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { SketchPicker } from 'react-color';
 
 function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgroundMusic, setBackgroundMusic, 
   setAnimationSpeed, animationSpeed, backgroundColor, setBackgroundColor, setButtonColor, buttonColor,
   buttonTextColor, setButtonTextColor, buttonTextOutlineColor, setButtonTextOutlineColor,
   setButtonTextOutlineThick,  buttonTextOutlineThick, customFont, setCustomFont, buttonHoverColor,
-  setButtonHoverColor}) {
+  setButtonHoverColor, setShowButtonPattern, showButtonPattern}) {
   
   const [activeTab, setActiveTab] = useState('Background');
+  const [showColorPicker, setShowColorPicker] = useState(false); 
+  const colorPickerRef = useRef(null);
+  const [pickerPosition, setPickerPosition] = useState({ top: 0, left: 0 });
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
+  };
+
+
+// Function to set the position of the color picker
+const setPosition = () => {
+  const buttonColorInput = document.getElementById('buttonColorInput');
+  if (buttonColorInput) {
+    const { top, left } = buttonColorInput.getBoundingClientRect();
+    setPickerPosition({ top: top + buttonColorInput.offsetHeight, left });
+  }
+};
+
+// Call setPosition() when the component mounts or the buttonColorInput changes
+useEffect(() => {
+  setPosition();
+}, [buttonColor]); // Add other dependencies if necessary
+
+
+  useEffect(() => {
+    // Add event listener to close color picker when clicking outside of it
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleClickOutside = (event) => {
+    // Close color picker if clicked outside of it
+    if (colorPickerRef.current && !colorPickerRef.current.contains(event.target)) {
+      setShowColorPicker(false);
+    }
+  };
+
+
+  const handleColorPickerClose = () => {
+    setShowColorPicker(false);
   };
 
   const handleAnimationSpeedChange = (value) => {
@@ -24,9 +64,8 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
     setBackgroundColor(e.target.value);
   };
 
-  const handleButtonColorChange = (e) => {
-    // console.log("Button Color changed to:", e.target.value);
-    setButtonColor(e.target.value);
+  const handleButtonColorChange = (color) => {
+    setButtonColor(color.hex); // Update button color
   };
 
   const handleButtonHoverColorChange = (e) => {
@@ -64,12 +103,21 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
     setIsHovered(false);
   };
   
+  const handleButtonColorInputClick = () => {
+    setShowColorPicker(true);
+    setPosition();
+  };
+
+  const setShowButtonPatternClick = () => {
+    setShowButtonPattern(prevState => !prevState);
+  };
 
   const gameButtonStyle = {
     backgroundColor: isHovered ? buttonHoverColor : buttonColor,
     WebkitTextFillColor: buttonTextColor,
     fontFamily: customFont,
-    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
+    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`,
+    backgroundImage: showButtonPattern ? undefined : 'none'
   };
   
   return (
@@ -91,6 +139,11 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
             value={backgroundColor}
             onChange={handleBackgroundColorChange}
           />
+            {showColorPicker && (
+            <div ref={colorPickerRef} style={{ position: 'absolute', top: pickerPosition.top, left: pickerPosition.left, zIndex: '2' }}>
+            <SketchPicker color={backgroundColor} onChange={handleBackgroundColorChange} />
+            </div>
+            )}
           <div
             className="sliding-background"
             style={{ backgroundColor: backgroundColor }}
@@ -112,12 +165,17 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
         <div className="options">
           <div style={{ textAlign: "center", fontFamily: 'Fredoka One', color: "#FFFFFF", WebkitTextStroke: "1px #000000" }} className="settingsTitle">Buttons</div>
           <label htmlFor="buttonColorInput">Button Color:</label>
-          <input
-            type="text"
-            id="buttonColorInput"
-            value={buttonColor}
-            onChange={handleButtonColorChange}
-          />
+            <input
+              type="text"
+              id="buttonColorInput"
+              value={buttonColor}
+              onClick={handleButtonColorInputClick} // Show color picker on click
+            />
+            {showColorPicker && (
+              <div ref={colorPickerRef} style={{ position: 'absolute', top: pickerPosition.top, left: pickerPosition.left, zIndex: '2' }}>
+                <SketchPicker color={buttonColor} onChange={handleButtonColorChange} />
+              </div>
+            )}
           <label htmlFor="buttonHoverColorInput">Button Hover Color:</label>
           <input
             type="text"
@@ -200,7 +258,7 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
             <input
               type="text"
               id="backgroundPatternColorInput"
-              placeholder="Enter background pattern color"
+              placeholder="Coming soon!"
               // Add onChange handler for background pattern color
             />
           </div>
@@ -209,9 +267,23 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
             <input
               type="text"
               id="buttonPatternColorInput"
-              placeholder="Enter button pattern color"
+              placeholder="Coming soon!"
               // Add onChange handler for button pattern color
             />
+            <div>
+            <input
+              type="checkbox"
+              checked={showButtonPattern}
+              onChange={setShowButtonPatternClick}
+            />
+              Show Button Pattern
+              </div>
+            <div>
+            <button
+              style={gameButtonStyle} 
+              onMouseEnter={handlePreviewMouseEnter}
+              onMouseLeave={handlePreviewMouseLeave}
+              >Preview!</button></div>
           </div>
         </div>
       )}

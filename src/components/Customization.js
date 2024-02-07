@@ -6,7 +6,7 @@ import Character from './Character';
 
 function Customization({ setCurrentPage, type, color, emotion, species, 
   updateAnimalAttribute, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick,
-  customFont, buttonHoverColor}) {
+  customFont, buttonHoverColor, showButtonPattern}) {
 
   function animalChangeColor(color) {
     updateAnimalAttribute("color", color);
@@ -29,7 +29,8 @@ function Customization({ setCurrentPage, type, color, emotion, species,
     backgroundColor: isStartHovered ? buttonHoverColor : buttonColor,
     fontFamily: customFont,
     WebkitTextFillColor: buttonTextColor,
-    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
+    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`,
+    backgroundImage: showButtonPattern ? undefined : 'none'
   };
   
   return(
