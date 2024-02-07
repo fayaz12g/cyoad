@@ -3,9 +3,8 @@ import BackButton from './BackButton';
 import React, { useState } from 'react';
 
 function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgroundMusic, setBackgroundMusic, setAnimationSpeed, animationSpeed, backgroundColor, setBackgroundColor, setButtonColor, buttonColor }) {
-  const handleAnimationSpeedChange = (e) => {
-    const speed = parseInt(e.target.value);
-    // console.log("Animation Speed changed to:", speed);
+  const handleAnimationSpeedChange = (value) => {
+    const speed = parseInt(value);
     setAnimationSpeed(speed); // Update the animation speed in App component
   };
 
@@ -53,10 +52,10 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
         <input
           type="range"
           id="animationSpeedSlider"
-          min="1"
-          max="1999"
-          value={animationSpeed}
-          onChange={handleAnimationSpeedChange}
+          min="250"
+          max="1459"
+          value={1479 - animationSpeed} // Invert the value
+          onChange={(e) => handleAnimationSpeedChange(1480 - e.target.value)} // Invert the value again before passing it to the handler
         />
       </div>
         <div className="Settings">
