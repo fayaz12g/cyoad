@@ -423,17 +423,17 @@ function Settings({
                   placeholder="Coming soon!"
                   // Add onChange handler for button pattern color
                 />
-                <div>
-                  <button
-                    style={gameButtonStyle}
-                    onMouseEnter={handlePreviewMouseEnter}
-                    onMouseLeave={handlePreviewMouseLeave}
-                  >
-                    Preview!
-                  </button>
-                </div>
               </>
             )}
+          <div>
+            <button
+              style={gameButtonStyle}
+              onMouseEnter={handlePreviewMouseEnter}
+              onMouseLeave={handlePreviewMouseLeave}
+            >
+              Preview!
+            </button>
+          </div>
           </div>
         </div>
       )}
