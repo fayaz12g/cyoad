@@ -57,7 +57,10 @@ function Menu({ setCurrentPage, audioRef, backgroundMusic, buttonColor, buttonTe
           style={settingsButtonStyle}
           onMouseEnter={handleSettingsMouseEnter}
           onMouseLeave={handleSettingsMouseLeave}
-          onClick={() => setCurrentPage("Settings")}
+          onClick={() => {
+            setCurrentPage("Settings");
+            backgroundMusic ? audioRef.current.play() : audioRef.current++
+          }}
         >
           Settings
         </button>
