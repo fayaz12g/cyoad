@@ -7,7 +7,7 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
   setAnimationSpeed, animationSpeed, backgroundColor, setBackgroundColor, setButtonColor, buttonColor,
   buttonTextColor, setButtonTextColor, buttonTextOutlineColor, setButtonTextOutlineColor,
   setButtonTextOutlineThick,  buttonTextOutlineThick, customFont, setCustomFont, buttonHoverColor,
-  setButtonHoverColor, setShowButtonPattern, showButtonPattern}) {
+  setButtonHoverColor, setShowButtonPattern, showButtonPattern, showBackgroundPattern, setShowBackgroundPattern}) {
   
   const [activeTab, setActiveTab] = useState('Background');
   const [showColorPicker, setShowColorPicker] = useState(false); 
@@ -110,6 +110,10 @@ useEffect(() => {
 
   const setShowButtonPatternClick = () => {
     setShowButtonPattern(prevState => !prevState);
+  };
+
+  const setShowBackgroundPatternClick = () => {
+    setShowBackgroundPattern(prevState => !prevState);
   };
 
   const gameButtonStyle = {
@@ -251,42 +255,62 @@ useEffect(() => {
         </div>
       )}
       {activeTab === 'Patterns' && (
-        <div className="options">
-          <div style={{ textAlign: "center", fontFamily: 'Fredoka One', WebkitTextFillColor: "#FFFFFF", WebkitTextStroke: "1px #000000" }} className="settingsTitle">Patterns</div>
-          <div className="section">
-            <div className="sectionTitle">Background Pattern Color</div>
+      <div className="options">
+        <div style={{ textAlign: "center", fontFamily: 'Fredoka One', WebkitTextFillColor: "#FFFFFF", WebkitTextStroke: "1px #000000" }} className="settingsTitle">Patterns</div>
+        <div className="section">
+          <div>
             <input
-              type="text"
-              id="backgroundPatternColorInput"
-              placeholder="Coming soon!"
-              // Add onChange handler for background pattern color
+              type="checkbox"
+              checked={showBackgroundPattern}
+              onChange={setShowBackgroundPatternClick}
             />
+            Show Background Pattern
           </div>
-          <div className="section">
-            <div className="sectionTitle">Button Pattern Color</div>
-            <input
-              type="text"
-              id="buttonPatternColorInput"
-              placeholder="Coming soon!"
-              // Add onChange handler for button pattern color
-            />
-            <div>
+          {showBackgroundPattern && (
+            <>
+              <div className="sectionTitle">Background Pattern Color</div>
+              <input
+                type="text"
+                id="backgroundPatternColorInput"
+                placeholder="Coming soon!"
+                // Add onChange handler for background pattern color
+              />
+            </>
+          )}
+        </div>
+        <div className="section">
+          <div>
             <input
               type="checkbox"
               checked={showButtonPattern}
               onChange={setShowButtonPatternClick}
             />
-              Show Button Pattern
-              </div>
-            <div>
-            <button
-              style={gameButtonStyle} 
-              onMouseEnter={handlePreviewMouseEnter}
-              onMouseLeave={handlePreviewMouseLeave}
-              >Preview!</button></div>
+            Show Button Pattern
           </div>
+          {showButtonPattern && (
+            <>
+              <div className="sectionTitle">Button Pattern Color</div>
+              <input
+                type="text"
+                id="buttonPatternColorInput"
+                placeholder="Coming soon!"
+                // Add onChange handler for button pattern color
+              />
+              <div>
+                <button
+                  style={gameButtonStyle} 
+                  onMouseEnter={handlePreviewMouseEnter}
+                  onMouseLeave={handlePreviewMouseLeave}
+                >
+                  Preview!
+                </button>
+              </div>
+            </>
+          )}
         </div>
-      )}
+      </div>
+    )}
+
       {activeTab === 'Audio' && (
         <div className="options">
           <div style={{ textAlign: "center", fontFamily: 'Fredoka One', color: "#FFFFFF", WebkitTextStroke: "1px #000000" }} className="settingsTitle">Audio</div>

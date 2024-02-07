@@ -16,6 +16,7 @@ function App() {
   const [ gameSounds, setGameSounds ] = useState(true);
   const [ backgroundMusic, setBackgroundMusic ] = useState(true);
   const [ showButtonPattern, setShowButtonPattern ] = useState(true);
+  const [ showBackgroundPattern, setShowBackgroundPattern ] = useState(true);
   const [animationSpeed, setAnimationSpeed] = useState(999);
   const [backgroundColor, setBackgroundColor] = useState('#f3c801');
   const [buttonColor, setButtonColor] = useState('#a3c78d');
@@ -73,7 +74,11 @@ function App() {
   return (
       <div className="App">
 
-      <div className="sliding-background" style={{ '--animation-speed': `${animationSpeed}s`,'--background-color': `${backgroundColor}`,'--button-color': `${buttonColor}` }}></div>
+      <div className="sliding-background" style={{ 
+        '--animation-speed': `${animationSpeed}s`,
+      '--background-color': `${backgroundColor}`,
+      '--button-color': `${buttonColor}`, 
+      'background-image': showBackgroundPattern ? undefined : 'none'}}></div>
       <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'></link>
       
       {(currentPage === 'Home') && <Menu setCurrentPage={setCurrentPage} audioRef={audioRef} backgroundMusic={backgroundMusic}
@@ -108,6 +113,8 @@ function App() {
                                                 setCustomFont={setCustomFont}
                                                 customFont={customFont}
                                                 showButtonPattern={showButtonPattern}
+                                                showBackgroundPattern={showBackgroundPattern}
+                                                setShowBackgroundPattern={setShowBackgroundPattern}
                                                 setShowButtonPattern={setShowButtonPattern}
                                                 animationSpeed={animationSpeed} >
                                         </Settings>}
