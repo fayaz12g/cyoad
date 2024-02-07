@@ -2,7 +2,8 @@ import '../css/Menu.css';
 import LycleLogo from '../images/Lycle_Logo.png';
 import React, { useState } from 'react';
 
-function Menu({ setCurrentPage, audioRef, backgroundMusic, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick}) {
+function Menu({ setCurrentPage, audioRef, backgroundMusic, buttonColor, buttonTextColor, 
+  buttonTextOutlineColor, buttonTextOutlineThick, customFont}) {
   const [isPlayHovered, setIsPlayHovered] = useState(false);
   const [isSettingsHovered, setIsSettingsHovered] = useState(false);
 
@@ -25,6 +26,7 @@ function Menu({ setCurrentPage, audioRef, backgroundMusic, buttonColor, buttonTe
   const playButtonStyle = {
     backgroundColor: isPlayHovered ? 'rgb(164, 219, 131)' : buttonColor,
     WebkitTextFillColor: buttonTextColor,
+    fontFamily: customFont,
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
   };
   
@@ -32,6 +34,7 @@ function Menu({ setCurrentPage, audioRef, backgroundMusic, buttonColor, buttonTe
   const settingsButtonStyle = {
     backgroundColor: isSettingsHovered ? 'rgb(164, 219, 131)' : buttonColor,
     WebkitTextFillColor: buttonTextColor,
+    fontFamily: customFont,
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
   };
 

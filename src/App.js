@@ -21,6 +21,7 @@ function App() {
   const [buttonTextColor, setButtonTextColor] = useState('#FFFFFF');
   const [buttonTextOutlineColor, setButtonTextOutlineColor] = useState('#000000');
   const [buttonTextOutlineThick, setButtonTextOutlineThick] = useState(1);
+  const [customFont, setCustomFont] = useState('Fredoka One');
   
 
   const [ animalType, setAnimalType ] = useState("Undefined");
@@ -60,6 +61,7 @@ function App() {
                                                 setButtonColor={setButtonColor}
                                                 buttonTextOutlineColor={buttonTextOutlineColor}
                                                 buttonTextOutlineThick={buttonTextOutlineThick}
+                                                customFont={customFont}
                                                 buttonTextColor={buttonTextColor} >
                                                 </Menu>}
       {(currentPage === 'Settings') && <Settings setCurrentPage={setCurrentPage} 
@@ -79,6 +81,8 @@ function App() {
                                                 setButtonTextOutlineColor={setButtonTextOutlineColor}
                                                 setButtonTextOutlineThick={setButtonTextOutlineThick}
                                                 buttonTextOutlineThick={buttonTextOutlineThick}
+                                                setCustomFont={setCustomFont}
+                                                customFont={customFont}
                                                 animationSpeed={animationSpeed} >
                                         </Settings>}
       {(currentPage === 'Game') && <Game setCurrentPage={setCurrentPage}
@@ -92,6 +96,7 @@ function App() {
                                         buttonTextColor={buttonTextColor}
                                         buttonTextOutlineColor={buttonTextOutlineColor}
                                         buttonTextOutlineThick={buttonTextOutlineThick}
+                                        customFont={customFont}
                                         setButtonColor={setButtonColor} >
                                    </Game>}
       {(currentPage === 'Selection') && <Selection setCurrentPage={setCurrentPage}
@@ -107,6 +112,7 @@ function App() {
                                                           setButtonColor={setButtonColor}
                                                           buttonTextOutlineColor={buttonTextOutlineColor}
                                                           buttonTextOutlineThick={buttonTextOutlineThick}
+                                                          customFont={customFont}
                                                           buttonTextColor={buttonTextColor} >
                                             </Customization>}
       <audio ref={audioRef} loop autoplay>

@@ -40,10 +40,12 @@ input[type='checkbox']:checked {
 .tabContainer {
   display: flex;
   margin-top: 30px;
+  justify-content: space-between;
 }
 
+
 .tab {
-  /* TBA */
+  margin-right: 10px; 
 }
 
 .tab.active {

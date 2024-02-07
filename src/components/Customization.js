@@ -5,7 +5,8 @@ import React, { useState } from 'react';
 import Character from './Character';
 
 function Customization({ setCurrentPage, type, color, emotion, species, 
-  updateAnimalAttribute, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick }) {
+  updateAnimalAttribute, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick,
+  customFont}) {
 
   function animalChangeColor(color) {
     updateAnimalAttribute("color", color);
@@ -19,6 +20,7 @@ function Customization({ setCurrentPage, type, color, emotion, species,
 
   const gameButtonStyle = {
     backgroundColor: isPlayHovered ? 'rgb(164, 219, 131)' : buttonColor,
+    fontFamily: customFont,
     WebkitTextFillColor: buttonTextColor,
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
   };

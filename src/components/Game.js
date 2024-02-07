@@ -22,7 +22,8 @@ import PenguinSad from '../audio/emotions/penguin/penguin_sad.mp3';
 import PenguinMad from '../audio/emotions/penguin/penguin_mad.mp3';
 
 function Game({ setCurrentPage, type, color, emotion, species, updateAnimalAttribute, 
-  gameSounds, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick }) {
+  gameSounds, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick,
+customFont }) {
  
     const BFRef = useRef(null);
   const BHRef = useRef(null);
@@ -135,6 +136,7 @@ function Game({ setCurrentPage, type, color, emotion, species, updateAnimalAttri
   const gameButtonStyle = {
     backgroundColor: isPlayHovered ? 'rgb(164, 219, 131)' : buttonColor,
     WebkitTextFillColor: buttonTextColor,
+    fontFamily: customFont,
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
   };
 
