@@ -1,16 +1,38 @@
-import '../css/Settings.css';
-import BackButton from './BackButton';
-import React, { useState, useRef, useEffect } from 'react';
-import { SketchPicker } from 'react-color';
+import "../css/Settings.css";
+import BackButton from "./BackButton";
+import React, { useState, useRef, useEffect } from "react";
+import { SketchPicker } from "react-color";
 
-function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgroundMusic, setBackgroundMusic, 
-  setAnimationSpeed, animationSpeed, backgroundColor, setBackgroundColor, setButtonColor, buttonColor,
-  buttonTextColor, setButtonTextColor, buttonTextOutlineColor, setButtonTextOutlineColor,
-  setButtonTextOutlineThick,  buttonTextOutlineThick, customFont, setCustomFont, buttonHoverColor,
-  setButtonHoverColor, setShowButtonPattern, showButtonPattern, showBackgroundPattern, setShowBackgroundPattern}) {
-  
-  const [activeTab, setActiveTab] = useState('Background');
-  const [showColorPicker, setShowColorPicker] = useState(false); 
+function Settings({
+  setCurrentPage,
+  gameSounds,
+  setGameSounds,
+  audioRef,
+  backgroundMusic,
+  setBackgroundMusic,
+  setAnimationSpeed,
+  animationSpeed,
+  backgroundColor,
+  setBackgroundColor,
+  setButtonColor,
+  buttonColor,
+  buttonTextColor,
+  setButtonTextColor,
+  buttonTextOutlineColor,
+  setButtonTextOutlineColor,
+  setButtonTextOutlineThick,
+  buttonTextOutlineThick,
+  customFont,
+  setCustomFont,
+  buttonHoverColor,
+  setButtonHoverColor,
+  setShowButtonPattern,
+  showButtonPattern,
+  showBackgroundPattern,
+  setShowBackgroundPattern,
+}) {
+  const [activeTab, setActiveTab] = useState("Background");
+  const [showColorPicker, setShowColorPicker] = useState(false);
   const colorPickerRef = useRef(null);
   const [pickerPosition, setPickerPosition] = useState({ top: 0, left: 0 });
 
@@ -18,37 +40,37 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
     setActiveTab(tabName);
   };
 
+  // Function to set the position of the color picker
+  const setPosition = () => {
+    const buttonColorInput = document.getElementById("buttonColorInput");
+    if (buttonColorInput) {
+      const { top, left } = buttonColorInput.getBoundingClientRect();
+      setPickerPosition({ top: top + buttonColorInput.offsetHeight, left });
+    }
+  };
 
-// Function to set the position of the color picker
-const setPosition = () => {
-  const buttonColorInput = document.getElementById('buttonColorInput');
-  if (buttonColorInput) {
-    const { top, left } = buttonColorInput.getBoundingClientRect();
-    setPickerPosition({ top: top + buttonColorInput.offsetHeight, left });
-  }
-};
-
-// Call setPosition() when the component mounts or the buttonColorInput changes
-useEffect(() => {
-  setPosition();
-}, [buttonColor]); // Add other dependencies if necessary
-
+  // Call setPosition() when the component mounts or the buttonColorInput changes
+  useEffect(() => {
+    setPosition();
+  }, [buttonColor]); // Add other dependencies if necessary
 
   useEffect(() => {
     // Add event listener to close color picker when clicking outside of it
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
   const handleClickOutside = (event) => {
     // Close color picker if clicked outside of it
-    if (colorPickerRef.current && !colorPickerRef.current.contains(event.target)) {
+    if (
+      colorPickerRef.current &&
+      !colorPickerRef.current.contains(event.target)
+    ) {
       setShowColorPicker(false);
     }
   };
-
 
   const handleColorPickerClose = () => {
     setShowColorPicker(false);
@@ -72,7 +94,7 @@ useEffect(() => {
     // console.log("Button Hover Color changed to:", e.target.value);
     setButtonHoverColor(e.target.value);
   };
-  
+
   const handleButtonTextColorChange = (e) => {
     // console.log("Button Text Color changed to:", e.target.value);
     setButtonTextColor(e.target.value);
@@ -82,7 +104,7 @@ useEffect(() => {
     // console.log("Button Text Ouline Color changed to:", e.target.value);
     setButtonTextOutlineColor(e.target.value);
   };
-  
+
   const handleButtonTextOutlineThickChange = (e) => {
     // console.log("Button Text Ouline Thickeness changed to:", e.target.value);
     setButtonTextOutlineThick(e.target.value);
@@ -102,18 +124,18 @@ useEffect(() => {
   const handlePreviewMouseLeave = () => {
     setIsHovered(false);
   };
-  
+
   const handleButtonColorInputClick = () => {
     setShowColorPicker(true);
     setPosition();
   };
 
   const setShowButtonPatternClick = () => {
-    setShowButtonPattern(prevState => !prevState);
+    setShowButtonPattern((prevState) => !prevState);
   };
 
   const setShowBackgroundPatternClick = () => {
-    setShowBackgroundPattern(prevState => !prevState);
+    setShowBackgroundPattern((prevState) => !prevState);
   };
 
   const gameButtonStyle = {
@@ -121,21 +143,74 @@ useEffect(() => {
     WebkitTextFillColor: buttonTextColor,
     fontFamily: customFont,
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`,
-    backgroundImage: showButtonPattern ? undefined : 'none'
+    backgroundImage: showButtonPattern ? undefined : "none",
   };
-  
+
   return (
     <div className="Settings">
       <div className="tabContainer">
-      <div className={`tab ${activeTab === 'Background' ? 'active' : ''}`} style={{ fontSize: 30, fontFamily: 'Fredoka One', color: activeTab === 'Background' ? "#FFFFFF" : "#000000", WebkitTextStroke: "1px #000000"}} onClick={() => handleTabClick('Background')}>Background</div>
-      <div className={`tab ${activeTab === 'Button' ? 'active' : ''}`} style={{ fontSize: 30, fontFamily: 'Fredoka One', color: activeTab === 'Button' ? "#FFFFFF" : "#000000", WebkitTextStroke: "1px #000000"}} onClick={() => handleTabClick('Button')}>Buttons</div>
-      <div className={`tab ${activeTab === 'Patterns' ? 'active' : ''}`} style={{ fontSize: 30, fontFamily: 'Fredoka One', color: activeTab === 'Patterns' ? "#FFFFFF" : "#000000", WebkitTextStroke: "1px #000000"}} onClick={() => handleTabClick('Patterns')}>Patterns</div>
-      <div className={`tab ${activeTab === 'Audio' ? 'active' : ''}`} style={{ fontSize: 30, fontFamily: 'Fredoka One', color: activeTab === 'Audio' ? "#FFFFFF" : "#000000", WebkitTextStroke: "1px #000000" }} onClick={() => handleTabClick('Audio')}>Audio</div>
-
+        <div
+          className={`tab ${activeTab === "Background" ? "active" : ""}`}
+          style={{
+            fontSize: 30,
+            fontFamily: "Fredoka One",
+            color: activeTab === "Background" ? "#FFFFFF" : "#000000",
+            WebkitTextStroke: "1px #000000",
+          }}
+          onClick={() => handleTabClick("Background")}
+        >
+          Background
+        </div>
+        <div
+          className={`tab ${activeTab === "Button" ? "active" : ""}`}
+          style={{
+            fontSize: 30,
+            fontFamily: "Fredoka One",
+            color: activeTab === "Button" ? "#FFFFFF" : "#000000",
+            WebkitTextStroke: "1px #000000",
+          }}
+          onClick={() => handleTabClick("Button")}
+        >
+          Buttons
+        </div>
+        <div
+          className={`tab ${activeTab === "Patterns" ? "active" : ""}`}
+          style={{
+            fontSize: 30,
+            fontFamily: "Fredoka One",
+            color: activeTab === "Patterns" ? "#FFFFFF" : "#000000",
+            WebkitTextStroke: "1px #000000",
+          }}
+          onClick={() => handleTabClick("Patterns")}
+        >
+          Patterns
+        </div>
+        <div
+          className={`tab ${activeTab === "Audio" ? "active" : ""}`}
+          style={{
+            fontSize: 30,
+            fontFamily: "Fredoka One",
+            color: activeTab === "Audio" ? "#FFFFFF" : "#000000",
+            WebkitTextStroke: "1px #000000",
+          }}
+          onClick={() => handleTabClick("Audio")}
+        >
+          Audio
+        </div>
       </div>
-      {activeTab === 'Background' && (
+      {activeTab === "Background" && (
         <div className="options">
-          <div style={{ textAlign: "center", fontFamily: 'Fredoka One', color: "#FFFFFF", WebkitTextStroke: "1px #000000" }} className="settingsTitle">Background</div>
+          <div
+            style={{
+              textAlign: "center",
+              fontFamily: "Fredoka One",
+              color: "#FFFFFF",
+              WebkitTextStroke: "1px #000000",
+            }}
+            className="settingsTitle"
+          >
+            Background
+          </div>
           <label htmlFor="backgroundColorInput">Background Color:</label>
           <input
             type="text"
@@ -143,11 +218,22 @@ useEffect(() => {
             value={backgroundColor}
             onChange={handleBackgroundColorChange}
           />
-            {showColorPicker && (
-            <div ref={colorPickerRef} style={{ position: 'absolute', top: pickerPosition.top, left: pickerPosition.left, zIndex: '2' }}>
-            <SketchPicker color={backgroundColor} onChange={handleBackgroundColorChange} />
+          {showColorPicker && (
+            <div
+              ref={colorPickerRef}
+              style={{
+                position: "absolute",
+                top: pickerPosition.top,
+                left: pickerPosition.left,
+                zIndex: "2",
+              }}
+            >
+              <SketchPicker
+                color={backgroundColor}
+                onChange={handleBackgroundColorChange}
+              />
             </div>
-            )}
+          )}
           <div
             className="sliding-background"
             style={{ backgroundColor: backgroundColor }}
@@ -160,26 +246,49 @@ useEffect(() => {
               min="0"
               max="1459"
               value={1479 - animationSpeed} // Invert the value
-              onChange={(e) => handleAnimationSpeedChange(1480 - e.target.value)} 
+              onChange={(e) =>
+                handleAnimationSpeedChange(1480 - e.target.value)
+              }
             />
           </div>
         </div>
       )}
-      {activeTab === 'Button' && (
+      {activeTab === "Button" && (
         <div className="options">
-          <div style={{ textAlign: "center", fontFamily: 'Fredoka One', color: "#FFFFFF", WebkitTextStroke: "1px #000000" }} className="settingsTitle">Buttons</div>
+          <div
+            style={{
+              textAlign: "center",
+              fontFamily: "Fredoka One",
+              color: "#FFFFFF",
+              WebkitTextStroke: "1px #000000",
+            }}
+            className="settingsTitle"
+          >
+            Buttons
+          </div>
           <label htmlFor="buttonColorInput">Button Color:</label>
-            <input
-              type="text"
-              id="buttonColorInput"
-              value={buttonColor}
-              onClick={handleButtonColorInputClick} // Show color picker on click
-            />
-            {showColorPicker && (
-              <div ref={colorPickerRef} style={{ position: 'absolute', top: pickerPosition.top, left: pickerPosition.left, zIndex: '2' }}>
-                <SketchPicker color={buttonColor} onChange={handleButtonColorChange} />
-              </div>
-            )}
+          <input
+            type="text"
+            id="buttonColorInput"
+            value={buttonColor}
+            onClick={handleButtonColorInputClick} // Show color picker on click
+          />
+          {showColorPicker && (
+            <div
+              ref={colorPickerRef}
+              style={{
+                position: "absolute",
+                top: pickerPosition.top,
+                left: pickerPosition.left,
+                zIndex: "2",
+              }}
+            >
+              <SketchPicker
+                color={buttonColor}
+                onChange={handleButtonColorChange}
+              />
+            </div>
+          )}
           <label htmlFor="buttonHoverColorInput">Button Hover Color:</label>
           <input
             type="text"
@@ -213,7 +322,9 @@ useEffect(() => {
             <option value="Geneva">Geneva</option>
             <option value="Century Gothic">Century Gothic</option>
             <option value="Copperplate">Copperplate</option>
-            <option value="Franklin Gothic Medium">Franklin Gothic Medium</option>
+            <option value="Franklin Gothic Medium">
+              Franklin Gothic Medium
+            </option>
             <option value="Optima">Optima</option>
             <option value="Rockwell">Rockwell</option>
             <option value="Symbol">Symbol</option>
@@ -231,14 +342,18 @@ useEffect(() => {
             value={buttonTextColor}
             onChange={handleButtonTextColorChange}
           />
-          <label htmlFor="buttonTextOutlineColorInput">Text Outline Color:</label>
+          <label htmlFor="buttonTextOutlineColorInput">
+            Text Outline Color:
+          </label>
           <input
             type="text"
             id="buttonTextOutlineColorInput"
             value={buttonTextOutlineColor}
             onChange={handleButtonTextOutlineColorChange}
           />
-          <label htmlFor="buttonTextOutlineThickInput">Text Outline Thickness:</label>
+          <label htmlFor="buttonTextOutlineThickInput">
+            Text Outline Thickness:
+          </label>
           <input
             type="range"
             id="buttonTextOutlineThickInput"
@@ -247,79 +362,116 @@ useEffect(() => {
             value={buttonTextOutlineThick}
             onChange={handleButtonTextOutlineThickChange}
           />
-          <button 
-          style={gameButtonStyle} 
-          onMouseEnter={handlePreviewMouseEnter}
-          onMouseLeave={handlePreviewMouseLeave}
-          >Preview!</button>
+          <button
+            style={gameButtonStyle}
+            onMouseEnter={handlePreviewMouseEnter}
+            onMouseLeave={handlePreviewMouseLeave}
+          >
+            Preview!
+          </button>
         </div>
       )}
-      {activeTab === 'Patterns' && (
-      <div className="options">
-        <div style={{ textAlign: "center", fontFamily: 'Fredoka One', WebkitTextFillColor: "#FFFFFF", WebkitTextStroke: "1px #000000" }} className="settingsTitle">Patterns</div>
-        <div className="section">
-          <div>
-            <input
-              type="checkbox"
-              checked={showBackgroundPattern}
-              onChange={setShowBackgroundPatternClick}
-            />
-            Show Background Pattern
-          </div>
-          {showBackgroundPattern && (
-            <>
-              <div className="sectionTitle">Background Pattern Color</div>
-              <input
-                type="text"
-                id="backgroundPatternColorInput"
-                placeholder="Coming soon!"
-                // Add onChange handler for background pattern color
-              />
-            </>
-          )}
-        </div>
-        <div className="section">
-          <div>
-            <input
-              type="checkbox"
-              checked={showButtonPattern}
-              onChange={setShowButtonPatternClick}
-            />
-            Show Button Pattern
-          </div>
-          {showButtonPattern && (
-            <>
-              <div className="sectionTitle">Button Pattern Color</div>
-              <input
-                type="text"
-                id="buttonPatternColorInput"
-                placeholder="Coming soon!"
-                // Add onChange handler for button pattern color
-              />
-              <div>
-                <button
-                  style={gameButtonStyle} 
-                  onMouseEnter={handlePreviewMouseEnter}
-                  onMouseLeave={handlePreviewMouseLeave}
-                >
-                  Preview!
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-    )}
-
-      {activeTab === 'Audio' && (
+      {activeTab === "Patterns" && (
         <div className="options">
-          <div style={{ textAlign: "center", fontFamily: 'Fredoka One', color: "#FFFFFF", WebkitTextStroke: "1px #000000" }} className="settingsTitle">Audio</div>
+          <div
+            style={{
+              textAlign: "center",
+              fontFamily: "Fredoka One",
+              WebkitTextFillColor: "#FFFFFF",
+              WebkitTextStroke: "1px #000000",
+            }}
+            className="settingsTitle"
+          >
+            Patterns
+          </div>
+          <div className="section">
+            <div>
+              <input
+                type="checkbox"
+                checked={showBackgroundPattern}
+                onChange={setShowBackgroundPatternClick}
+              />
+              Show Background Pattern
+            </div>
+            {showBackgroundPattern && (
+              <>
+                <div className="sectionTitle">Background Pattern Color</div>
+                <input
+                  type="text"
+                  id="backgroundPatternColorInput"
+                  placeholder="Coming soon!"
+                  // Add onChange handler for background pattern color
+                />
+              </>
+            )}
+          </div>
+          <div className="section">
+            <div>
+              <input
+                type="checkbox"
+                checked={showButtonPattern}
+                onChange={setShowButtonPatternClick}
+              />
+              Show Button Pattern
+            </div>
+            {showButtonPattern && (
+              <>
+                <div className="sectionTitle">Button Pattern Color</div>
+                <input
+                  type="text"
+                  id="buttonPatternColorInput"
+                  placeholder="Coming soon!"
+                  // Add onChange handler for button pattern color
+                />
+                <div>
+                  <button
+                    style={gameButtonStyle}
+                    onMouseEnter={handlePreviewMouseEnter}
+                    onMouseLeave={handlePreviewMouseLeave}
+                  >
+                    Preview!
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
+      {activeTab === "Audio" && (
+        <div className="options">
+          <div
+            style={{
+              textAlign: "center",
+              fontFamily: "Fredoka One",
+              color: "#FFFFFF",
+              WebkitTextStroke: "1px #000000",
+            }}
+            className="settingsTitle"
+          >
+            Audio
+          </div>
           <div className="option">
-            <input type="checkbox" checked={gameSounds} onClick={(e) => {setGameSounds(!gameSounds)}} />
+            <input
+              type="checkbox"
+              checked={gameSounds}
+              onClick={(e) => {
+                setGameSounds(!gameSounds);
+              }}
+            />
             Game Sounds
           </div>
           <div className="option">
-            <input type="checkbox" checked={backgroundMusic} onClick={(e) => {setBackgroundMusic(!backgroundMusic); backgroundMusic ? audioRef.current.pause() : audioRef.current.play()}} />
+            <input
+              type="checkbox"
+              checked={backgroundMusic}
+              onClick={(e) => {
+                setBackgroundMusic(!backgroundMusic);
+                backgroundMusic
+                  ? audioRef.current.pause()
+                  : audioRef.current.play();
+              }}
+            />
             Background Music
           </div>
         </div>
