@@ -63,8 +63,9 @@ function Menu({ setCurrentPage, audioRef, backgroundMusic, buttonColor, buttonTe
         </button>
       </div>
       <div className="credits">
-        <div>Fayaz & Christopher</div>
-        <div>Hack_NCState 2024</div>
+      <div>
+        Based off of <a href="https://github.com/cfields7/lycle" target="_blank" rel="noopener noreferrer">Lycle.Co</a>
+      </div>
       </div>
     </div>
   );
