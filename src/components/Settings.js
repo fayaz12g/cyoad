@@ -2,7 +2,7 @@ import '../css/Settings.css';
 import BackButton from './BackButton';
 import React, { useState } from 'react';
 
-function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgroundMusic, setBackgroundMusic, setAnimationSpeed, animationSpeed, backgroundColor, setBackgroundColor }) {
+function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgroundMusic, setBackgroundMusic, setAnimationSpeed, animationSpeed, backgroundColor, setBackgroundColor, setButtonColor, buttonColor }) {
   const handleAnimationSpeedChange = (e) => {
     const speed = parseInt(e.target.value);
     // console.log("Animation Speed changed to:", speed);
@@ -10,8 +10,14 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
   };
 
   const handleBackgroundColorChange = (e) => {
-    console.log("Background Color changed to:", e.target.value);
+    // console.log("Background Color changed to:", e.target.value);
     setBackgroundColor(e.target.value);
+  };
+
+
+  const handleButtonColorChange = (e) => {
+    // console.log("Button Color changed to:", e.target.value);
+    setButtonColor(e.target.value);
   };
   
   
@@ -29,6 +35,18 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
       <div
         className="sliding-background"
         style={{ backgroundColor: backgroundColor }}
+      ></div>
+      <label htmlFor="buttonColorInput">Button Color:</label>
+      <input
+        type="text"
+        id="buttonColorInput"
+        value={buttonColor}
+        onChange={handleButtonColorChange}
+      />
+      <div className="options"></div>
+      <div
+        className="Button"
+        style={{ backgroundColor: buttonColor }}
       ></div>
       <div className="option">
         <label htmlFor="animationSpeedSlider">Animation Speed</label>

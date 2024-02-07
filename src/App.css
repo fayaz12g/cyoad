@@ -35,12 +35,12 @@
   }
 }
 
-button {
+Button {
   font-size: 4vh;
   padding: 1vh 2vh;
-  color: #28392b;
-  background-color: #a3c78d;
-  border-color: #4c6c53;
+  color: var(--button-color, #28392b);
+  background-color: var(--button-color, #a3c78d);
+  border-color: var(--button-color, #4c6c53);
   background-image: url('./images/Button_Pattern.png');
   border-radius: 2vh;
   font-weight: bold;

@@ -17,6 +17,7 @@ function App() {
   const [ backgroundMusic, setBackgroundMusic ] = useState(true);
   const [animationSpeed, setAnimationSpeed] = useState(999);
   const [backgroundColor, setBackgroundColor] = useState('#f3c801');
+  const [buttonColor, setButtonColor] = useState('#a3c78d');
   
 
   const [ animalType, setAnimalType ] = useState("Undefined");
@@ -48,10 +49,13 @@ function App() {
   return (
       <div className="App">
 
-      <div class="sliding-background" style={{ '--animation-speed': `${animationSpeed}s`,'--background-color': `${backgroundColor}` }}></div>
+      <div class="sliding-background" style={{ '--animation-speed': `${animationSpeed}s`,'--background-color': `${backgroundColor}`,'--button-color': `${buttonColor}` }}></div>
       <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'></link>
       
-      {(currentPage === 'Home') && <Menu setCurrentPage={setCurrentPage} audioRef={audioRef} backgroundMusic={backgroundMusic}></Menu>}
+      {(currentPage === 'Home') && <Menu setCurrentPage={setCurrentPage} audioRef={audioRef} backgroundMusic={backgroundMusic}
+                                                buttonColor={buttonColor}
+                                                setButtonColor={setButtonColor} >
+                                                </Menu>}
       {(currentPage === 'Settings') && <Settings setCurrentPage={setCurrentPage} 
                                                 gameSounds={gameSounds}
                                                 setGameSounds={setGameSounds}
@@ -61,6 +65,8 @@ function App() {
                                                 setAnimationSpeed={setAnimationSpeed} 
                                                 setBackgroundColor={setBackgroundColor}
                                                 backgroundColor={backgroundColor}
+                                                buttonColor={buttonColor}
+                                                setButtonColor={setButtonColor}
                                                 animationSpeed={animationSpeed} >
                                         </Settings>}
       {(currentPage === 'Game') && <Game setCurrentPage={setCurrentPage}
@@ -69,7 +75,9 @@ function App() {
                                         emotion={animalEmotion}
                                         species={animalSpecies}
                                         updateAnimalAttribute={updateAnimalAttribute}
-                                        gameSounds={gameSounds}>
+                                        gameSounds={gameSounds}
+                                        buttonColor={buttonColor}
+                                        setButtonColor={setButtonColor} >
                                    </Game>}
       {(currentPage === 'Selection') && <Selection setCurrentPage={setCurrentPage}
                                                   updateAnimalAttribute={updateAnimalAttribute}>
@@ -79,7 +87,9 @@ function App() {
                                                           color={animalColor}
                                                           emotion={animalEmotion}
                                                           species={animalSpecies}
-                                                          updateAnimalAttribute={updateAnimalAttribute}>
+                                                          updateAnimalAttribute={updateAnimalAttribute}
+                                                          buttonColor={buttonColor}
+                                                          setButtonColor={setButtonColor} >
                                             </Customization>}
       <audio ref={audioRef} loop autoplay>
         <source src={BackgroundMusicAudio} type="audio/mp3" />

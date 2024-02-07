@@ -34,7 +34,7 @@ function Customization({ setCurrentPage, type, color, emotion, species, updateAn
         </div>
       </div>
       <div className="startContainer">
-        <button className="startButton" onClick={() => setCurrentPage("Game")}>Start Game!</button>
+        <button style={{ backgroundColor: buttonColor }} className="startButton" onClick={() => setCurrentPage("Game")}>Start Game!</button>
       </div>
 
       <BackButton navigateBack={() => setCurrentPage("Selection")} />

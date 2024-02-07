@@ -136,8 +136,8 @@ function Game({ setCurrentPage, type, color, emotion, species, updateAnimalAttri
         <div className={`story ${color}`}>{getOptionById(type, id).story}</div>
 
         <div className="storyOptions">
-          <button onClick={() => advanceChoice(getOptionById(type, id).optionA)}>{getOptionById(type, getOptionById(type, id).optionA).option}</button>
-          <button onClick={() => advanceChoice(getOptionById(type, id).optionB)}>{getOptionById(type, getOptionById(type, id).optionB).option}</button>
+          <button style={{ backgroundColor: buttonColor }} onClick={() => advanceChoice(getOptionById(type, id).optionA)}>{getOptionById(type, getOptionById(type, id).optionA).option}</button>
+          <button style={{ backgroundColor: buttonColor }} onClick={() => advanceChoice(getOptionById(type, id).optionB)}>{getOptionById(type, getOptionById(type, id).optionB).option}</button>
         </div>
       </div>
 
