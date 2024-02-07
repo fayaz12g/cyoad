@@ -3,7 +3,7 @@ import BackButton from './BackButton';
 
 import Character from './Character';
 
-function Customization({ setCurrentPage, type, color, emotion, species, updateAnimalAttribute }) {
+function Customization({ setCurrentPage, type, color, emotion, species, updateAnimalAttribute, buttonColor }) {
 
   function animalChangeColor(color) {
     updateAnimalAttribute("color", color);
