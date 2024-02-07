@@ -1,11 +1,17 @@
 import '../css/Menu.css';
 import LycleLogo from '../images/Lycle_Logo.png';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Menu({ setCurrentPage, audioRef, backgroundMusic, buttonColor, buttonTextColor, 
   buttonTextOutlineColor, buttonTextOutlineThick, customFont, buttonHoverColor}) {
   const [isPlayHovered, setIsPlayHovered] = useState(false);
   const [isSettingsHovered, setIsSettingsHovered] = useState(false);
+
+  // useEffect(() => {
+  //   if (backgroundMusic) {
+  //     audioRef.current.play();
+  //   }
+  // }, []);
 
   const handlePlayMouseEnter = () => {
     setIsPlayHovered(true);

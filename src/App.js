@@ -1,5 +1,5 @@
 import './App.css';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 import Menu from './components/Menu.js';
 import Settings from './components/Settings.js';
@@ -24,13 +24,31 @@ function App() {
   const [buttonTextOutlineThick, setButtonTextOutlineThick] = useState(1);
   const [customFont, setCustomFont] = useState('Fredoka One');
   
-
   const [ animalType, setAnimalType ] = useState("Undefined");
   const [ animalColor, setAnimalColor ] = useState("White");
   const [ animalEmotion, setAnimalEmotion ] = useState("Idle");
   const [ animalSpecies, setAnimalSpecies ] = useState("Undefined");
 
   const audioRef = useRef(null);
+
+  useEffect(() => {
+    const handleTimeUpdate = () => {
+      if (audioRef.current.currentTime >= 81) {
+        audioRef.current.currentTime = 5; 
+      }
+    };
+
+    if (backgroundMusic) {
+      audioRef.current.play();
+      audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
+    } else {
+      audioRef.current.pause();
+    }
+
+    return () => {
+      audioRef.current.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, [backgroundMusic]);
 
   function updateAnimalAttribute(attribute, value) {
     switch(attribute) {
@@ -54,7 +72,7 @@ function App() {
   return (
       <div className="App">
 
-      <div class="sliding-background" style={{ '--animation-speed': `${animationSpeed}s`,'--background-color': `${backgroundColor}`,'--button-color': `${buttonColor}` }}></div>
+      <div className="sliding-background" style={{ '--animation-speed': `${animationSpeed}s`,'--background-color': `${backgroundColor}`,'--button-color': `${buttonColor}` }}></div>
       <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'></link>
       
       {(currentPage === 'Home') && <Menu setCurrentPage={setCurrentPage} audioRef={audioRef} backgroundMusic={backgroundMusic}
@@ -121,7 +139,7 @@ function App() {
                                                           customFont={customFont}
                                                           buttonTextColor={buttonTextColor} >
                                             </Customization>}
-      <audio ref={audioRef} loop autoplay>
+      <audio ref={audioRef} loop autoPlay>
         <source src={BackgroundMusicAudio} type="audio/mp3" />
       </audio>
       
