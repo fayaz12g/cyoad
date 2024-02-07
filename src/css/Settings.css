@@ -36,3 +36,16 @@ input[type='checkbox'] {
 input[type='checkbox']:checked {
   background: #abd;
 }
+
+.tabContainer {
+  display: flex;
+  margin-top: 30px;
+}
+
+.tab {
+  /* TBA */
+}
+
+.tab.active {
+  /* ATBA */
+}

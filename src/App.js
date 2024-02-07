@@ -18,6 +18,9 @@ function App() {
   const [animationSpeed, setAnimationSpeed] = useState(999);
   const [backgroundColor, setBackgroundColor] = useState('#f3c801');
   const [buttonColor, setButtonColor] = useState('#a3c78d');
+  const [buttonTextColor, setButtonTextColor] = useState('#FFFFFF');
+  const [buttonTextOutlineColor, setButtonTextOutlineColor] = useState('#000000');
+  const [buttonTextOutlineThick, setButtonTextOutlineThick] = useState(1);
   
 
   const [ animalType, setAnimalType ] = useState("Undefined");
@@ -54,7 +57,10 @@ function App() {
       
       {(currentPage === 'Home') && <Menu setCurrentPage={setCurrentPage} audioRef={audioRef} backgroundMusic={backgroundMusic}
                                                 buttonColor={buttonColor}
-                                                setButtonColor={setButtonColor} >
+                                                setButtonColor={setButtonColor}
+                                                buttonTextOutlineColor={buttonTextOutlineColor}
+                                                buttonTextOutlineThick={buttonTextOutlineThick}
+                                                buttonTextColor={buttonTextColor} >
                                                 </Menu>}
       {(currentPage === 'Settings') && <Settings setCurrentPage={setCurrentPage} 
                                                 gameSounds={gameSounds}
@@ -67,6 +73,12 @@ function App() {
                                                 backgroundColor={backgroundColor}
                                                 buttonColor={buttonColor}
                                                 setButtonColor={setButtonColor}
+                                                buttonTextColor={buttonTextColor}
+                                                buttonTextOutlineColor={buttonTextOutlineColor}
+                                                setButtonTextColor={setButtonTextColor}
+                                                setButtonTextOutlineColor={setButtonTextOutlineColor}
+                                                setButtonTextOutlineThick={setButtonTextOutlineThick}
+                                                buttonTextOutlineThick={buttonTextOutlineThick}
                                                 animationSpeed={animationSpeed} >
                                         </Settings>}
       {(currentPage === 'Game') && <Game setCurrentPage={setCurrentPage}
@@ -77,6 +89,9 @@ function App() {
                                         updateAnimalAttribute={updateAnimalAttribute}
                                         gameSounds={gameSounds}
                                         buttonColor={buttonColor}
+                                        buttonTextColor={buttonTextColor}
+                                        buttonTextOutlineColor={buttonTextOutlineColor}
+                                        buttonTextOutlineThick={buttonTextOutlineThick}
                                         setButtonColor={setButtonColor} >
                                    </Game>}
       {(currentPage === 'Selection') && <Selection setCurrentPage={setCurrentPage}
@@ -89,7 +104,10 @@ function App() {
                                                           species={animalSpecies}
                                                           updateAnimalAttribute={updateAnimalAttribute}
                                                           buttonColor={buttonColor}
-                                                          setButtonColor={setButtonColor} >
+                                                          setButtonColor={setButtonColor}
+                                                          buttonTextOutlineColor={buttonTextOutlineColor}
+                                                          buttonTextOutlineThick={buttonTextOutlineThick}
+                                                          buttonTextColor={buttonTextColor} >
                                             </Customization>}
       <audio ref={audioRef} loop autoplay>
         <source src={BackgroundMusicAudio} type="audio/mp3" />

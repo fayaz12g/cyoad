@@ -1,9 +1,11 @@
 import '../css/Customization.css';
 import BackButton from './BackButton';
+import React, { useState } from 'react';
 
 import Character from './Character';
 
-function Customization({ setCurrentPage, type, color, emotion, species, updateAnimalAttribute, buttonColor }) {
+function Customization({ setCurrentPage, type, color, emotion, species, 
+  updateAnimalAttribute, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick }) {
 
   function animalChangeColor(color) {
     updateAnimalAttribute("color", color);
@@ -13,6 +15,14 @@ function Customization({ setCurrentPage, type, color, emotion, species, updateAn
    }, 2000);
   }
 
+  const [isPlayHovered, setIsPlayHovered] = useState(false);
+
+  const gameButtonStyle = {
+    backgroundColor: isPlayHovered ? 'rgb(164, 219, 131)' : buttonColor,
+    WebkitTextFillColor: buttonTextColor,
+    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
+  };
+  
   return(
     <div className="Customization">
       <Character type={type} color={color} emotion={emotion} species={species} updateAnimalAttribute={updateAnimalAttribute}/>
@@ -34,7 +44,7 @@ function Customization({ setCurrentPage, type, color, emotion, species, updateAn
         </div>
       </div>
       <div className="startContainer">
-        <button style={{ backgroundColor: buttonColor }} className="startButton" onClick={() => setCurrentPage("Game")}>Start Game!</button>
+        <button style={gameButtonStyle} className="startButton" onClick={() => setCurrentPage("Game")}>Start Game!</button>
       </div>
 
       <BackButton navigateBack={() => setCurrentPage("Selection")} />

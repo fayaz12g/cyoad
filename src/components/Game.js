@@ -21,8 +21,10 @@ import PenguinHappy from '../audio/emotions/penguin/penguin_happy.mp3';
 import PenguinSad from '../audio/emotions/penguin/penguin_sad.mp3';
 import PenguinMad from '../audio/emotions/penguin/penguin_mad.mp3';
 
-function Game({ setCurrentPage, type, color, emotion, species, updateAnimalAttribute, gameSounds, buttonColor }) {
-  const BFRef = useRef(null);
+function Game({ setCurrentPage, type, color, emotion, species, updateAnimalAttribute, 
+  gameSounds, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick }) {
+ 
+    const BFRef = useRef(null);
   const BHRef = useRef(null);
   const BSRef = useRef(null);
   const BMRef = useRef(null);
@@ -128,6 +130,14 @@ function Game({ setCurrentPage, type, color, emotion, species, updateAnimalAttri
     }
   }
 
+  const [isPlayHovered, setIsPlayHovered] = useState(false);
+
+  const gameButtonStyle = {
+    backgroundColor: isPlayHovered ? 'rgb(164, 219, 131)' : buttonColor,
+    WebkitTextFillColor: buttonTextColor,
+    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
+  };
+
   return(
     <div className="Game">
       <Character type={type} color={color} emotion={emotion} species={species} updateAnimalAttribute={updateAnimalAttribute}/>
@@ -136,8 +146,8 @@ function Game({ setCurrentPage, type, color, emotion, species, updateAnimalAttri
         <div className={`story ${color}`}>{getOptionById(type, id).story}</div>
 
         <div className="storyOptions">
-          <button style={{ backgroundColor: buttonColor }} onClick={() => advanceChoice(getOptionById(type, id).optionA)}>{getOptionById(type, getOptionById(type, id).optionA).option}</button>
-          <button style={{ backgroundColor: buttonColor }} onClick={() => advanceChoice(getOptionById(type, id).optionB)}>{getOptionById(type, getOptionById(type, id).optionB).option}</button>
+          <button style={gameButtonStyle} onClick={() => advanceChoice(getOptionById(type, id).optionA)}>{getOptionById(type, getOptionById(type, id).optionA).option}</button>
+          <button style={gameButtonStyle} onClick={() => advanceChoice(getOptionById(type, id).optionB)}>{getOptionById(type, getOptionById(type, id).optionB).option}</button>
         </div>
       </div>
 
