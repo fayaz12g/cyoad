@@ -6,7 +6,7 @@ import Character from './Character';
 
 function Customization({ setCurrentPage, type, color, emotion, species, 
   updateAnimalAttribute, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick,
-  customFont}) {
+  customFont, buttonHoverColor}) {
 
   function animalChangeColor(color) {
     updateAnimalAttribute("color", color);
@@ -15,11 +15,18 @@ function Customization({ setCurrentPage, type, color, emotion, species,
       updateAnimalAttribute("emotion", "Idle");
    }, 2000);
   }
+  const handleStartMouseEnter = () => {
+    setIsStartHovered(true);
+  };
 
-  const [isPlayHovered, setIsPlayHovered] = useState(false);
+  const handleStartMouseLeave = () => {
+    setIsStartHovered(false);
+  };
+
+  const [isStartHovered, setIsStartHovered] = useState(false);
 
   const gameButtonStyle = {
-    backgroundColor: isPlayHovered ? 'rgb(164, 219, 131)' : buttonColor,
+    backgroundColor: isStartHovered ? buttonHoverColor : buttonColor,
     fontFamily: customFont,
     WebkitTextFillColor: buttonTextColor,
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
@@ -46,7 +53,10 @@ function Customization({ setCurrentPage, type, color, emotion, species,
         </div>
       </div>
       <div className="startContainer">
-        <button style={gameButtonStyle} className="startButton" onClick={() => setCurrentPage("Game")}>Start Game!</button>
+        <button 
+        onMouseEnter={handleStartMouseEnter}
+        onMouseLeave={handleStartMouseLeave}
+        style={gameButtonStyle} className="startButton" onClick={() => setCurrentPage("Game")}>Start Game!</button>
       </div>
 
       <BackButton navigateBack={() => setCurrentPage("Selection")} />

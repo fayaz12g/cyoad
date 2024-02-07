@@ -23,7 +23,7 @@ import PenguinMad from '../audio/emotions/penguin/penguin_mad.mp3';
 
 function Game({ setCurrentPage, type, color, emotion, species, updateAnimalAttribute, 
   gameSounds, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick,
-customFont }) {
+customFont, buttonHoverColor }) {
  
     const BFRef = useRef(null);
   const BHRef = useRef(null);
@@ -131,15 +131,39 @@ customFont }) {
     }
   }
 
-  const [isPlayHovered, setIsPlayHovered] = useState(false);
+  const handleOP1MouseEnter = () => {
+    setIsOP1Hovered(true);
+  };
 
-  const gameButtonStyle = {
-    backgroundColor: isPlayHovered ? 'rgb(164, 219, 131)' : buttonColor,
+  const handleOP1MouseLeave = () => {
+    setIsOP1Hovered(false);
+  };
+
+  const handleOP2MouseEnter = () => {
+    setIsOP2Hovered(true);
+  };
+
+  const handleOP2MouseLeave = () => {
+    setIsOP2Hovered(false);
+  };
+
+
+  const [isOP1Hovered, setIsOP1Hovered] = useState(false);
+  const [isOP2Hovered, setIsOP2Hovered] = useState(false);
+
+  const gameButtonStyle1 = {
+    backgroundColor: isOP1Hovered ? buttonHoverColor : buttonColor,
     WebkitTextFillColor: buttonTextColor,
     fontFamily: customFont,
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
   };
 
+  const gameButtonStyle2 = {
+    backgroundColor: isOP2Hovered ? buttonHoverColor : buttonColor,
+    WebkitTextFillColor: buttonTextColor,
+    fontFamily: customFont,
+    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
+  };
   return(
     <div className="Game">
       <Character type={type} color={color} emotion={emotion} species={species} updateAnimalAttribute={updateAnimalAttribute}/>
@@ -148,8 +172,14 @@ customFont }) {
         <div className={`story ${color}`}>{getOptionById(type, id).story}</div>
 
         <div className="storyOptions">
-          <button style={gameButtonStyle} onClick={() => advanceChoice(getOptionById(type, id).optionA)}>{getOptionById(type, getOptionById(type, id).optionA).option}</button>
-          <button style={gameButtonStyle} onClick={() => advanceChoice(getOptionById(type, id).optionB)}>{getOptionById(type, getOptionById(type, id).optionB).option}</button>
+          <button 
+          onMouseEnter={handleOP1MouseEnter}
+          onMouseLeave={handleOP1MouseLeave}
+          style={gameButtonStyle1} onClick={() => advanceChoice(getOptionById(type, id).optionA)}>{getOptionById(type, getOptionById(type, id).optionA).option}</button>
+          <button 
+          onMouseEnter={handleOP2MouseEnter}
+          onMouseLeave={handleOP2MouseLeave}
+          style={gameButtonStyle2} onClick={() => advanceChoice(getOptionById(type, id).optionB)}>{getOptionById(type, getOptionById(type, id).optionB).option}</button>
         </div>
       </div>
 

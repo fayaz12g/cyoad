@@ -5,7 +5,8 @@ import React, { useState } from 'react';
 function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgroundMusic, setBackgroundMusic, 
   setAnimationSpeed, animationSpeed, backgroundColor, setBackgroundColor, setButtonColor, buttonColor,
   buttonTextColor, setButtonTextColor, buttonTextOutlineColor, setButtonTextOutlineColor,
-  setButtonTextOutlineThick,  buttonTextOutlineThick, customFont, setCustomFont}) {
+  setButtonTextOutlineThick,  buttonTextOutlineThick, customFont, setCustomFont, buttonHoverColor,
+  setButtonHoverColor}) {
   
   const [activeTab, setActiveTab] = useState('Background');
 
@@ -27,6 +28,11 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
     // console.log("Button Color changed to:", e.target.value);
     setButtonColor(e.target.value);
   };
+
+  const handleButtonHoverColorChange = (e) => {
+    // console.log("Button Hover Color changed to:", e.target.value);
+    setButtonHoverColor(e.target.value);
+  };
   
   const handleButtonTextColorChange = (e) => {
     // console.log("Button Text Color changed to:", e.target.value);
@@ -46,6 +52,24 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
   const handleButtonTextFontChange = (e) => {
     // console.log("Button Text Ouline Thickeness changed to:", e.target.value);
     setCustomFont(e.target.value);
+  };
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handlePreviewMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handlePreviewMouseLeave = () => {
+    setIsHovered(false);
+  };
+  
+
+  const gameButtonStyle = {
+    backgroundColor: isHovered ? buttonHoverColor : buttonColor,
+    WebkitTextFillColor: buttonTextColor,
+    fontFamily: customFont,
+    WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`
   };
   
   return (
@@ -93,6 +117,13 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
             id="buttonColorInput"
             value={buttonColor}
             onChange={handleButtonColorChange}
+          />
+          <label htmlFor="buttonHoverColorInput">Button Hover Color:</label>
+          <input
+            type="text"
+            id="buttonHoverColorInput"
+            value={buttonHoverColor}
+            onChange={handleButtonHoverColorChange}
           />
           <label htmlFor="buttonTextColorInput">Text Font:</label>
           <select
@@ -155,7 +186,9 @@ function Settings({ setCurrentPage, gameSounds, setGameSounds, audioRef, backgro
             onChange={handleButtonTextOutlineThickChange}
           />
           <button 
-          style={{ fontFamily: customFont, backgroundColor: buttonColor, WebkitTextFillColor: buttonTextColor, WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}` }} 
+          style={gameButtonStyle} 
+          onMouseEnter={handlePreviewMouseEnter}
+          onMouseLeave={handlePreviewMouseLeave}
           >Preview!</button>
         </div>
       )}

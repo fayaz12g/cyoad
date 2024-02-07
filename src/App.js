@@ -18,6 +18,7 @@ function App() {
   const [animationSpeed, setAnimationSpeed] = useState(999);
   const [backgroundColor, setBackgroundColor] = useState('#f3c801');
   const [buttonColor, setButtonColor] = useState('#a3c78d');
+  const [buttonHoverColor, setButtonHoverColor] = useState('#a3db83');
   const [buttonTextColor, setButtonTextColor] = useState('#FFFFFF');
   const [buttonTextOutlineColor, setButtonTextOutlineColor] = useState('#000000');
   const [buttonTextOutlineThick, setButtonTextOutlineThick] = useState(1);
@@ -62,7 +63,8 @@ function App() {
                                                 buttonTextOutlineColor={buttonTextOutlineColor}
                                                 buttonTextOutlineThick={buttonTextOutlineThick}
                                                 customFont={customFont}
-                                                buttonTextColor={buttonTextColor} >
+                                                buttonTextColor={buttonTextColor} 
+                                                buttonHoverColor={buttonHoverColor}>
                                                 </Menu>}
       {(currentPage === 'Settings') && <Settings setCurrentPage={setCurrentPage} 
                                                 gameSounds={gameSounds}
@@ -74,6 +76,8 @@ function App() {
                                                 setBackgroundColor={setBackgroundColor}
                                                 backgroundColor={backgroundColor}
                                                 buttonColor={buttonColor}
+                                                buttonHoverColor={buttonHoverColor}
+                                                setButtonHoverColor={setButtonHoverColor}
                                                 setButtonColor={setButtonColor}
                                                 buttonTextColor={buttonTextColor}
                                                 buttonTextOutlineColor={buttonTextOutlineColor}
@@ -93,6 +97,7 @@ function App() {
                                         updateAnimalAttribute={updateAnimalAttribute}
                                         gameSounds={gameSounds}
                                         buttonColor={buttonColor}
+                                        buttonHoverColor={buttonHoverColor}
                                         buttonTextColor={buttonTextColor}
                                         buttonTextOutlineColor={buttonTextOutlineColor}
                                         buttonTextOutlineThick={buttonTextOutlineThick}
@@ -109,6 +114,7 @@ function App() {
                                                           species={animalSpecies}
                                                           updateAnimalAttribute={updateAnimalAttribute}
                                                           buttonColor={buttonColor}
+                                                          buttonHoverColor={buttonHoverColor}
                                                           setButtonColor={setButtonColor}
                                                           buttonTextOutlineColor={buttonTextOutlineColor}
                                                           buttonTextOutlineThick={buttonTextOutlineThick}
