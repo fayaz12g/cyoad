@@ -33,8 +33,8 @@ function App() {
 
   useEffect(() => {
     const handleTimeUpdate = () => {
-      if (audioRef.current.currentTime >= 81) {
-        audioRef.current.currentTime = 5; 
+      if (audioRef.current.currentTime >= 81.5) {
+        audioRef.current.currentTime = 4.5; 
       }
     };
 
