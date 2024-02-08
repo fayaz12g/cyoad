@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.3aa7482c.css",
-    "main.js": "/static/js/main.ddf142b0.js",
+    "main.css": "/static/css/main.af66dcca.css",
+    "main.js": "/static/js/main.19b087b1.js",
     "static/media/menu.mp3": "/static/media/menu.30aa4fc9dbad54c96ba9.mp3",
     "static/media/Lycle_Logo.png": "/static/media/Lycle_Logo.cff231ca0cef76235467.png",
     "static/media/Penguin_Stencil.png": "/static/media/Penguin_Stencil.8816ade4c8fd518ab834.png",
     "static/media/Penguin_Red.png": "/static/media/Penguin_Red.dcd666e1fb3f8b2e4772.png",
+    "static/media/Penguin_Stencil_colored.png": "/static/media/Penguin_Stencil_colored.875a41465ae3ac2954b6.png",
     "static/media/Penguin_White.png": "/static/media/Penguin_White.0d9b2339ed87dea198aa.png",
     "static/media/Penguin_Yellow.png": "/static/media/Penguin_Yellow.fdc5351d63cfb266e652.png",
     "static/media/Penguin_Orange.png": "/static/media/Penguin_Orange.8ced8bf6fc57a5ca037d.png",
@@ -17,6 +18,7 @@
     "static/media/Penguin_Sad.png": "/static/media/Penguin_Sad.a3dcc8ed40ca948ef10f.png",
     "static/media/Cat_Stencil.png": "/static/media/Cat_Stencil.f39466b184266d255546.png",
     "static/media/Cat_White.png": "/static/media/Cat_White.66234e0bafd06d51de57.png",
+    "static/media/Cat_Stencil_colored.png": "/static/media/Cat_Stencil_colored.36aa0f5ad290746558ab.png",
     "static/media/Cat_Red.png": "/static/media/Cat_Red.a8fd177b0c54fc03a1fa.png",
     "static/media/Penguin_Fear.png": "/static/media/Penguin_Fear.b5be976a9917204793e3.png",
     "static/media/Cat_Orange.png": "/static/media/Cat_Orange.799851ada0366625e78f.png",
@@ -30,6 +32,7 @@
     "static/media/Bird_Blue.png": "/static/media/Bird_Blue.5c7084594d264d07fa13.png",
     "static/media/Bird_Green.png": "/static/media/Bird_Green.1bb33897b96681b676ff.png",
     "static/media/Bird_Stencil.png": "/static/media/Bird_Stencil.03f20d7246465b459fb4.png",
+    "static/media/Bird_Stencil_colored.png": "/static/media/Bird_Stencil_colored.03f20d7246465b459fb4.png",
     "static/media/Bird_Yellow.png": "/static/media/Bird_Yellow.bec10535982153178b6c.png",
     "static/media/Cat_July.png": "/static/media/Cat_July.03180e9cc3bea427c9e2.png",
     "static/media/Bird_July.png": "/static/media/Bird_July.b03fe209c84d8f63d5dd.png",
@@ -54,11 +57,11 @@
     "static/media/cat_happy.mp3": "/static/media/cat_happy.22c1ef829366b821e895.mp3",
     "static/media/bird_fear.mp3": "/static/media/bird_fear.5bd12a6128e538befd35.mp3",
     "index.html": "/index.html",
-    "main.3aa7482c.css.map": "/static/css/main.3aa7482c.css.map",
-    "main.ddf142b0.js.map": "/static/js/main.ddf142b0.js.map"
+    "main.af66dcca.css.map": "/static/css/main.af66dcca.css.map",
+    "main.19b087b1.js.map": "/static/js/main.19b087b1.js.map"
   },
   "entrypoints": [
-    "static/css/main.3aa7482c.css",
-    "static/js/main.ddf142b0.js"
+    "static/css/main.af66dcca.css",
+    "static/js/main.19b087b1.js"
   ]
 }
