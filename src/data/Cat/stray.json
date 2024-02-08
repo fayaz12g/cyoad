@@ -1,5 +1,6 @@
 [
   {
+    "id": "emotion_states",
     "emotionA": "Happy",
     "emotionB": "Idle",
     "emotionC": "Sad",
