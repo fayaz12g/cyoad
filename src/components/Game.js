@@ -23,7 +23,8 @@ import PenguinMad from '../audio/emotions/penguin/penguin_mad.mp3';
 
 function Game({ setCurrentPage, type, color, emotion, species, updateAnimalAttribute, 
   gameSounds, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick,
-customFont, buttonHoverColor, showButtonPattern }) {
+customFont, buttonHoverColor, showButtonPattern, setButtonTextSize,
+buttonTextSize, gameTextSize }) {
  
     const BFRef = useRef(null);
   const BHRef = useRef(null);
@@ -155,6 +156,7 @@ customFont, buttonHoverColor, showButtonPattern }) {
     backgroundColor: isOP1Hovered ? buttonHoverColor : buttonColor,
     WebkitTextFillColor: buttonTextColor,
     fontFamily: customFont,
+    fontSize: buttonTextSize +'vh',
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`,
     backgroundImage: showButtonPattern ? undefined : 'none'
   };
@@ -163,6 +165,7 @@ customFont, buttonHoverColor, showButtonPattern }) {
     backgroundColor: isOP2Hovered ? buttonHoverColor : buttonColor,
     WebkitTextFillColor: buttonTextColor,
     fontFamily: customFont,
+    fontSize: buttonTextSize +'vh',
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`,
     backgroundImage: showButtonPattern ? undefined : 'none'
   };
@@ -171,7 +174,7 @@ customFont, buttonHoverColor, showButtonPattern }) {
       <Character type={type} color={color} emotion={emotion} species={species} updateAnimalAttribute={updateAnimalAttribute}/>
 
       <div className="progression">
-        <div className={`story ${color}`}>{getOptionById(type, id).story}</div>
+        <div className={`story ${color}`}style={{fontSize: gameTextSize +'vh'}}>{getOptionById(type, id).story}</div>
 
         <div className="storyOptions">
           <button 

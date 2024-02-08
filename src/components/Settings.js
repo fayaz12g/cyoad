@@ -30,8 +30,12 @@ function Settings({
   showButtonPattern,
   showBackgroundPattern,
   setShowBackgroundPattern,
+  setButtonTextSize,
+  buttonTextSize,
+  gameTextSize,
+  setGameTextSize
 }) {
-  const [activeTab, setActiveTab] = useState("Background");
+  const [activeTab, setActiveTab] = useState("General");
   const [showColorPicker, setShowColorPicker] = useState(false);
   const colorPickerRef = useRef(null);
   const [pickerPosition, setPickerPosition] = useState({ top: 0, left: 0 });
@@ -40,22 +44,29 @@ function Settings({
     setActiveTab(tabName);
   };
 
-  // Function to set the position of the color picker
   const setPosition = () => {
     const buttonColorInput = document.getElementById("buttonColorInput");
+    const backgroundColorInput = document.getElementById("backgroundColorInput");
+    let position = { top: 0, left: 0 };
+  
     if (buttonColorInput) {
       const { top, left } = buttonColorInput.getBoundingClientRect();
-      setPickerPosition({ top: top + buttonColorInput.offsetHeight, left });
+      position = { top: top + buttonColorInput.offsetHeight, left };
     }
+    if (backgroundColorInput) {
+      const { top, left } = backgroundColorInput.getBoundingClientRect();
+      position = { top: top + backgroundColorInput.offsetHeight, left };
+    }
+  
+    setPickerPosition(position);
   };
 
-  // Call setPosition() when the component mounts or the buttonColorInput changes
   useEffect(() => {
     setPosition();
-  }, [buttonColor]); // Add other dependencies if necessary
+  }, [buttonColor]);
 
   useEffect(() => {
-    // Add event listener to close color picker when clicking outside of it
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -63,7 +74,6 @@ function Settings({
   }, []);
 
   const handleClickOutside = (event) => {
-    // Close color picker if clicked outside of it
     if (
       colorPickerRef.current &&
       !colorPickerRef.current.contains(event.target)
@@ -78,40 +88,39 @@ function Settings({
 
   const handleAnimationSpeedChange = (value) => {
     const speed = parseInt(value);
-    setAnimationSpeed(speed); // Update the animation speed in App component
+    setAnimationSpeed(speed); 
   };
 
   const handleBackgroundColorChange = (e) => {
-    // console.log("Background Color changed to:", e.target.value);
     setBackgroundColor(e.target.value);
   };
 
   const handleButtonColorChange = (color) => {
-    setButtonColor(color.hex); // Update button color
+    setButtonColor(color.hex); 
   };
 
   const handleButtonHoverColorChange = (e) => {
-    // console.log("Button Hover Color changed to:", e.target.value);
     setButtonHoverColor(e.target.value);
   };
 
   const handleButtonTextColorChange = (e) => {
-    // console.log("Button Text Color changed to:", e.target.value);
+    handleBackgroundColorInputClick()
     setButtonTextColor(e.target.value);
   };
 
   const handleButtonTextOutlineColorChange = (e) => {
-    // console.log("Button Text Ouline Color changed to:", e.target.value);
     setButtonTextOutlineColor(e.target.value);
   };
 
   const handleButtonTextOutlineThickChange = (e) => {
-    // console.log("Button Text Ouline Thickeness changed to:", e.target.value);
     setButtonTextOutlineThick(e.target.value);
   };
 
+  const handleButtonTextSize = (e) => {
+    setButtonTextSize(e.target.value);
+  };
+
   const handleButtonTextFontChange = (e) => {
-    // console.log("Button Text Ouline Thickeness changed to:", e.target.value);
     setCustomFont(e.target.value);
   };
 
@@ -127,6 +136,13 @@ function Settings({
 
   const handleButtonColorInputClick = () => {
     setShowColorPicker(true);
+    // console.log("Color Picker is set to" + showColorPicker);
+    setPosition();
+  };
+
+  const handleBackgroundColorInputClick = () => {
+    setShowColorPicker(true);
+    // console.log("Color Picker is set to " + showColorPicker);
     setPosition();
   };
 
@@ -138,10 +154,15 @@ function Settings({
     setShowBackgroundPattern((prevState) => !prevState);
   };
 
+  const handleGameTextSizeChange = (e) => {
+    setGameTextSize(e.target.value);
+  };
+  
   const gameButtonStyle = {
     backgroundColor: isHovered ? buttonHoverColor : buttonColor,
     WebkitTextFillColor: buttonTextColor,
     fontFamily: customFont,
+    fontSize: buttonTextSize +'vh',
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`,
     backgroundImage: showButtonPattern ? undefined : "none",
   };
@@ -150,16 +171,16 @@ function Settings({
     <div className="Settings">
       <div className="tabContainer">
         <div
-          className={`tab ${activeTab === "Background" ? "active" : ""}`}
+          className={`tab ${activeTab === "General" ? "active" : ""}`}
           style={{
             fontSize: 30,
             fontFamily: "Fredoka One",
-            color: activeTab === "Background" ? "#FFFFFF" : "#000000",
+            color: activeTab === "General" ? "#FFFFFF" : "#000000",
             WebkitTextStroke: "1px #000000",
           }}
-          onClick={() => handleTabClick("Background")}
+          onClick={() => handleTabClick("General")}
         >
-          Background
+          General
         </div>
         <div
           className={`tab ${activeTab === "Button" ? "active" : ""}`}
@@ -198,7 +219,7 @@ function Settings({
           Audio
         </div>
       </div>
-      {activeTab === "Background" && (
+      {activeTab === "General" && (
         <div className="options">
           <div
             style={{
@@ -209,6 +230,39 @@ function Settings({
             }}
             className="settingsTitle"
           >
+            General
+          </div>
+          <div
+            style={{
+              textAlign: "center",
+              fontFamily: "Fredoka One",
+              color: "#000000",
+              WebkitTextStroke: "1px #FFFFFF",
+              fontSize: '5vh',
+            }}
+            className="settingsTitle"
+          >
+            Text
+          </div>
+          <label htmlFor="gameTextSizeSlider">Game Text Size</label>
+            <input
+              type="range"
+              id="gameTextSizeSlider"
+              min="1"
+              max="10"
+              value={gameTextSize}
+              onChange={handleGameTextSizeChange}
+            />
+          <div
+            style={{
+              textAlign: "center",
+              fontFamily: "Fredoka One",
+              color: "#000000",
+              WebkitTextStroke: "1px #FFFFFF",
+              fontSize: '5vh',
+            }}
+            className="settingsTitle"
+          >
             Background
           </div>
           <label htmlFor="backgroundColorInput">Background Color:</label>
@@ -216,7 +270,7 @@ function Settings({
             type="text"
             id="backgroundColorInput"
             value={backgroundColor}
-            onChange={handleBackgroundColorChange}
+            onClick={handleBackgroundColorInputClick}
           />
           {showColorPicker && (
             <div
@@ -230,7 +284,7 @@ function Settings({
             >
               <SketchPicker
                 color={backgroundColor}
-                onChange={handleBackgroundColorChange}
+                onChange={handleBackgroundColorInputClick}
               />
             </div>
           )}
@@ -266,12 +320,23 @@ function Settings({
           >
             Buttons
           </div>
-          <label htmlFor="buttonColorInput">Button Color:</label>
+          <label htmlFor="buttonTextSize">
+            Size:
+          </label>
+          <input
+            type="range"
+            id="buttonTextSize"
+            min="1"
+            max="15"
+            value={buttonTextSize}
+            onChange={handleButtonTextSize}
+          />
+          <label htmlFor="buttonColorInput">Background Color:</label>
           <input
             type="text"
             id="buttonColorInput"
             value={buttonColor}
-            onClick={handleButtonColorInputClick} // Show color picker on click
+            onClick={handleButtonColorInputClick}
           />
           {showColorPicker && (
             <div
@@ -289,7 +354,7 @@ function Settings({
               />
             </div>
           )}
-          <label htmlFor="buttonHoverColorInput">Button Hover Color:</label>
+          <label htmlFor="buttonHoverColorInput">Background Hover Color:</label>
           <input
             type="text"
             id="buttonHoverColorInput"
@@ -362,6 +427,7 @@ function Settings({
             value={buttonTextOutlineThick}
             onChange={handleButtonTextOutlineThickChange}
           />
+          <div style={{margin:"6vh"}}>
           <button
             style={gameButtonStyle}
             onMouseEnter={handlePreviewMouseEnter}
@@ -370,6 +436,7 @@ function Settings({
             Preview!
           </button>
         </div>
+          </div>
       )}
       {activeTab === "Patterns" && (
         <div className="options">
@@ -383,6 +450,18 @@ function Settings({
             className="settingsTitle"
           >
             Patterns
+          </div>
+          <div
+            style={{
+              textAlign: "center",
+              fontFamily: "Fredoka One",
+              color: "#000000",
+              WebkitTextStroke: "1px #FFFFFF",
+              fontSize: '5vh',
+            }}
+            className="settingsTitle"
+          >
+            Background
           </div>
           <div className="section">
             <div>
@@ -400,10 +479,21 @@ function Settings({
                   type="text"
                   id="backgroundPatternColorInput"
                   placeholder="Coming soon!"
-                  // Add onChange handler for background pattern color
                 />
               </>
             )}
+          </div>
+          <div
+            style={{
+              textAlign: "center",
+              fontFamily: "Fredoka One",
+              color: "#000000",
+              WebkitTextStroke: "1px #FFFFFF",
+              fontSize: '5vh',
+            }}
+            className="settingsTitle"
+          >
+            Button
           </div>
           <div className="section">
             <div>
@@ -416,24 +506,26 @@ function Settings({
             </div>
             {showButtonPattern && (
               <>
-                <div className="sectionTitle">Button Pattern Color</div>
+                <div className="sectionTitle">Button Pattern Color:</div>
+                <div style={{ display: 'flex', justifyContent: 'center', margin:"1vh" }}>
                 <input
+                  align-items="center"
+                  style={{textAlign: "center"}}
                   type="text"
                   id="buttonPatternColorInput"
                   placeholder="Coming soon!"
-                  // Add onChange handler for button pattern color
-                />
+                /></div>
               </>
             )}
-          <div>
-            <button
-              style={gameButtonStyle}
-              onMouseEnter={handlePreviewMouseEnter}
-              onMouseLeave={handlePreviewMouseLeave}
-            >
-              Preview!
-            </button>
-          </div>
+      <div style={{textAlign: "center", margin:"7vh" }}>
+        <button
+          style={gameButtonStyle}
+          onMouseEnter={handlePreviewMouseEnter}
+          onMouseLeave={handlePreviewMouseLeave}
+        >
+          Preview!
+        </button>
+      </div>
           </div>
         </div>
       )}

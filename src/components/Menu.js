@@ -3,7 +3,8 @@ import LycleLogo from '../images/Lycle_Logo.png';
 import React, { useState, useEffect } from 'react';
 
 function Menu({ setCurrentPage, audioRef, backgroundMusic, buttonColor, buttonTextColor, 
-  buttonTextOutlineColor, buttonTextOutlineThick, customFont, buttonHoverColor, showButtonPattern}) {
+  buttonTextOutlineColor, buttonTextOutlineThick, customFont, buttonHoverColor, showButtonPattern, setButtonTextSize,
+  buttonTextSize}) {
   const [isPlayHovered, setIsPlayHovered] = useState(false);
   const [isSettingsHovered, setIsSettingsHovered] = useState(false);
 
@@ -33,6 +34,7 @@ function Menu({ setCurrentPage, audioRef, backgroundMusic, buttonColor, buttonTe
     backgroundColor: isPlayHovered ? buttonHoverColor : buttonColor,
     WebkitTextFillColor: buttonTextColor,
     fontFamily: customFont,
+    fontSize: buttonTextSize +'vh',
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`,
     backgroundImage: showButtonPattern ? undefined : 'none'
   };
@@ -42,6 +44,7 @@ function Menu({ setCurrentPage, audioRef, backgroundMusic, buttonColor, buttonTe
     backgroundColor: isSettingsHovered ? buttonHoverColor : buttonColor,
     WebkitTextFillColor: buttonTextColor,
     fontFamily: customFont,
+    fontSize: buttonTextSize +'vh',
     WebkitTextStroke: `${buttonTextOutlineThick}px ${buttonTextOutlineColor}`,
     backgroundImage: showButtonPattern ? undefined : 'none'
   };

@@ -18,6 +18,7 @@ function App() {
   const [ showButtonPattern, setShowButtonPattern ] = useState(true);
   const [ showBackgroundPattern, setShowBackgroundPattern ] = useState(true);
   const [animationSpeed, setAnimationSpeed] = useState(999);
+  const [buttonTextSize, setButtonTextSize] = useState(4);
   const [backgroundColor, setBackgroundColor] = useState('#f3c801');
   const [buttonColor, setButtonColor] = useState('#a3c78d');
   const [buttonHoverColor, setButtonHoverColor] = useState('#a3db83');
@@ -25,6 +26,7 @@ function App() {
   const [buttonTextOutlineColor, setButtonTextOutlineColor] = useState('#000000');
   const [buttonTextOutlineThick, setButtonTextOutlineThick] = useState(1);
   const [customFont, setCustomFont] = useState('Fredoka One');
+  const [gameTextSize, setGameTextSize] = useState(3);
   
   const [ animalType, setAnimalType ] = useState("Undefined");
   const [ animalColor, setAnimalColor ] = useState("White");
@@ -88,6 +90,8 @@ function App() {
                                                 buttonTextOutlineThick={buttonTextOutlineThick}
                                                 customFont={customFont}
                                                 buttonTextColor={buttonTextColor} 
+                                                buttonTextSize={buttonTextSize}
+                                                setButtonTextSize={setButtonTextSize}
                                                 showButtonPattern={showButtonPattern}
                                                 buttonHoverColor={buttonHoverColor}>
                                                 </Menu>}
@@ -116,6 +120,10 @@ function App() {
                                                 showBackgroundPattern={showBackgroundPattern}
                                                 setShowBackgroundPattern={setShowBackgroundPattern}
                                                 setShowButtonPattern={setShowButtonPattern}
+                                                buttonTextSize={buttonTextSize}
+                                                setButtonTextSize={setButtonTextSize}
+                                                setGameTextSize={setGameTextSize}
+                                                gameTextSize={gameTextSize}
                                                 animationSpeed={animationSpeed} >
                                         </Settings>}
       {(currentPage === 'Game') && <Game setCurrentPage={setCurrentPage}
@@ -131,7 +139,10 @@ function App() {
                                         buttonTextOutlineColor={buttonTextOutlineColor}
                                         buttonTextOutlineThick={buttonTextOutlineThick}
                                         customFont={customFont}
+                                        buttonTextSize={buttonTextSize}
+                                        setButtonTextSize={setButtonTextSize}
                                         showButtonPattern={showButtonPattern}
+                                        gameTextSize={gameTextSize}
                                         setButtonColor={setButtonColor} >
                                    </Game>}
       {(currentPage === 'Selection') && <Selection setCurrentPage={setCurrentPage}
@@ -149,6 +160,8 @@ function App() {
                                                           buttonTextOutlineColor={buttonTextOutlineColor}
                                                           buttonTextOutlineThick={buttonTextOutlineThick}
                                                           customFont={customFont}
+                                                          buttonTextSize={buttonTextSize}
+                                                          setButtonTextSize={setButtonTextSize}
                                                           showButtonPattern={showButtonPattern}
                                                           buttonTextColor={buttonTextColor} >
                                             </Customization>}
