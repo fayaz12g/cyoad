@@ -7,24 +7,17 @@ import Character from './Character';
 function Customization({ setCurrentPage, type, color, emotion, species, 
   updateAnimalAttribute, buttonColor, buttonTextColor, buttonTextOutlineColor, buttonTextOutlineThick,
   customFont, buttonHoverColor, showButtonPattern, setButtonTextSize,
-  buttonTextSize}) {
+  buttonTextSize, colors, specialColors}) {
 
   function animalChangeColor(color) {
     updateAnimalAttribute("color", color);
     updateAnimalAttribute("emotion", "Happy");
     setTimeout(() => {
       updateAnimalAttribute("emotion", "Idle");
-   }, 2000);
+    }, 2000);
   }
-  const handleStartMouseEnter = () => {
-    setIsStartHovered(true);
-  };
 
-  const handleStartMouseLeave = () => {
-    setIsStartHovered(false);
-  };
-
-  const [prevColor, setPrevColor] = useState("Red");
+  const [prevColor, setPrevColor] = useState("White");
 
   const [isStartHovered, setIsStartHovered] = useState(false);
 
@@ -38,35 +31,67 @@ function Customization({ setCurrentPage, type, color, emotion, species,
   };
   
   const handleColorSelection = (selectedColor) => {
+    const colorBoxes = document.querySelectorAll('.color');
+    colorBoxes.forEach(box => {
+      box.style.borderWidth = '1px';
+      box.style.borderColor = 'black';
+    });
+  
+    const selectedBox = document.querySelector(`.color.${selectedColor.toLowerCase()}`);
+    if (selectedBox) {
+      selectedBox.style.borderWidth = '2px';
+      selectedBox.style.borderColor = 'lightgreen';
+    }
+  
     setPrevColor(color);
     animalChangeColor(selectedColor);
   };
+
   
   return(
-    <div className="Customization">
+    <div className="Customization" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Character type={type} color={color} emotion={emotion} species={species} updateAnimalAttribute={updateAnimalAttribute}/>
 
       <div className="customizationOptions">
         <div className="customizeTitle">Customize Your Character</div>
         <div className="colorLabel">Color</div>
         <div className="colorSelection">
-        <div className={`color red ${color === "Red"}`} onClick={() => handleColorSelection("Red")} onMouseEnter={() => animalChangeColor("Red")} onMouseLeave={() => animalChangeColor(prevColor)}></div>
-        <div className={`color orange ${color === "Orange"}`} onClick={() => handleColorSelection("Orange")} onMouseEnter={() => animalChangeColor("Orange")} onMouseLeave={() => animalChangeColor(prevColor)}></div>
-        <div className={`color yellow ${color === "Yellow"}`} onClick={() => handleColorSelection("Yellow")} onMouseEnter={() => animalChangeColor("Yellow")} onMouseLeave={() => animalChangeColor(prevColor)}></div>
-        <div className={`color green ${color === "Green"}`} onClick={() => handleColorSelection("Green")} onMouseEnter={() => animalChangeColor("Green")} onMouseLeave={() => animalChangeColor(prevColor)}></div>
-        <div className={`color blue ${color === "Blue"}`} onClick={() => handleColorSelection("Blue")} onMouseEnter={() => animalChangeColor("Blue")} onMouseLeave={() => animalChangeColor(prevColor)}></div>
-      </div>
+          {/* Generate color options */}
+          {colors.map((c) => (
+            <div
+              key={c.name}
+              className={`color ${c.name.toLowerCase()} ${color === c.name ? "selected" : ""}`}
+              style={{ backgroundColor: c.hex }}
+              onClick={() => handleColorSelection(c.name)}
+              onMouseEnter={(e) => {animalChangeColor(c.name); e.target.style.borderColor = 'lightgreen';}}
+              onMouseLeave={(e) => {animalChangeColor(prevColor);   if (color !== e.name) {e.target.style.borderColor = 'black';}}}
+            ></div>
+          ))}
+        </div>
         <div className="colorLabel">Special</div>
         <div className="colorSelection">
-          <div className={`color july ${color === "July"}`} onClick={() => animalChangeColor("July")} onMouseEnter={() => handleColorSelection("July")} onMouseLeave={() => animalChangeColor(prevColor)}></div>
-          <div className={`color white ${color === "White"}`} onClick={() => animalChangeColor("White")} onMouseEnter={() => handleColorSelection("White")} onMouseLeave={() => animalChangeColor(prevColor)}></div>
+          {/* Generate special color options */}
+          {specialColors.map((c) => (
+            <div
+              key={c}
+              className={`color ${c.toLowerCase()} ${color === c ? "selected" : ""}`}
+              onClick={() => animalChangeColor(c)}
+              onMouseEnter={() => handleColorSelection(c)}
+              onMouseLeave={() => animalChangeColor(prevColor)}
+            ></div>
+          ))}
         </div>
       </div>
       <div className="startContainer">
         <button 
-        onMouseEnter={handleStartMouseEnter}
-        onMouseLeave={handleStartMouseLeave}
-        style={gameButtonStyle} className="startButton" onClick={() => setCurrentPage("Game")}>Start Game!</button>
+          onMouseEnter={() => setIsStartHovered(true)}
+          onMouseLeave={() => setIsStartHovered(false)}
+          style={gameButtonStyle}
+          className="startButton"
+          onClick={() => setCurrentPage("Game")}
+        >
+          Start Game!
+        </button>
       </div>
 
       <BackButton navigateBack={() => setCurrentPage("Selection")} />

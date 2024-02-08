@@ -1,4 +1,5 @@
 import "../css/Settings.css";
+import '../css/Customization.css';
 import BackButton from "./BackButton";
 import React, { useState, useRef, useEffect } from "react";
 import { SketchPicker } from "react-color";
@@ -33,7 +34,12 @@ function Settings({
   setButtonTextSize,
   buttonTextSize,
   gameTextSize,
-  setGameTextSize
+  setGameTextSize,
+  colors,
+  specialColors,
+  handleColorNameChange,
+  handleColorHexChange,
+  setColors
 }) {
   const [activeTab, setActiveTab] = useState("General");
   const [showColorPicker, setShowColorPicker] = useState(false);
@@ -134,6 +140,11 @@ function Settings({
     setIsHovered(false);
   };
 
+  const createNewColor = () => {
+    const newColor = { name: "New Color", hex: "#000000" };
+    const updatedColors = [...colors, newColor];
+    setColors(updatedColors);
+  };
   const handleButtonColorInputClick = () => {
     setShowColorPicker(true);
     // console.log("Color Picker is set to" + showColorPicker);
@@ -181,6 +192,18 @@ function Settings({
           onClick={() => handleTabClick("General")}
         >
           General
+        </div>
+        <div
+          className={`tab ${activeTab === "Colors" ? "active" : ""}`}
+          style={{
+            fontSize: 30,
+            fontFamily: "Fredoka One",
+            color: activeTab === "Colors" ? "#FFFFFF" : "#000000",
+            WebkitTextStroke: "1px #000000",
+          }}
+          onClick={() => handleTabClick("Colors")}
+        >
+          Colors
         </div>
         <div
           className={`tab ${activeTab === "Button" ? "active" : ""}`}
@@ -299,7 +322,7 @@ function Settings({
               id="animationSpeedSlider"
               min="0"
               max="1459"
-              value={1479 - animationSpeed} // Invert the value
+              value={1479 - animationSpeed}
               onChange={(e) =>
                 handleAnimationSpeedChange(1480 - e.target.value)
               }
@@ -307,6 +330,64 @@ function Settings({
           </div>
         </div>
       )}
+          {activeTab === "Colors" && (
+          <div className="options">
+            <div
+              style={{
+                textAlign: "center",
+                fontFamily: "Fredoka One",
+                color: "#FFFFFF",
+                WebkitTextStroke: "1px #000000",
+              }}
+              className="settingsTitle"
+            >
+              Colors
+            </div>
+            <div
+              style={{
+                textAlign: "center",
+                fontFamily: "Fredoka One",
+                color: "#000000",
+                WebkitTextStroke: "1px #FFFFFF",
+                fontSize: '5vh',
+              }}
+              className="settingsTitle"
+            >
+              Animal Fill Colors
+            </div>
+            {colors.map((color, index) => (
+              <div key={index}>
+                <label htmlFor={`colorNameInput${index}`}>{`Color ${index + 1} Name`}</label>
+                <input
+                  type="text"
+                  id={`colorNameInput${index}`}
+                  value={color.name}
+                  onChange={(e) => handleColorNameChange(e.target.value, index)} 
+                />
+                <label htmlFor={`colorHexInput${index}`}>{`Color ${index + 1} Hex`}</label>
+                <input
+                  type="text"
+                  id={`colorHexInput${index}`}
+                  value={color.hex}
+                  onChange={(e) => handleColorHexChange(e.target.value, index)} 
+                />
+                <div
+                  className="colorBox"
+                  style={{ backgroundColor: color.hex }}
+                ></div>
+              </div>
+              ))}
+              <button
+                className="createColorButton"
+                style={{ ...gameButtonStyle, margin: "3vh" }}
+                onMouseEnter={handlePreviewMouseEnter} 
+                onMouseLeave={handlePreviewMouseLeave} 
+                onClick={createNewColor}
+              >
+                Create New Color
+              </button>
+            </div>
+          )}
       {activeTab === "Button" && (
         <div className="options">
           <div

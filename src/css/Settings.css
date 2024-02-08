@@ -54,3 +54,11 @@ input[type='checkbox']:checked {
 .tab.active {
   /* ATBA */
 }
+
+.colorBox {
+  width: 20px; /* Adjust width and height as needed */
+  height: 20px;
+  margin-left: 10px; /* Adjust margin as needed */
+  display: inline-block;
+  border: 1px solid #000; /* Add border for visibility */
+}

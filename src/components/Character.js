@@ -7,6 +7,7 @@ import BirdWhite from '../images/Characters/Bird/Colors/Bird_White.png';
 import BirdYellow from '../images/Characters/Bird/Colors/Bird_Yellow.png';
 import BirdOrange from '../images/Characters/Bird/Colors/Bird_Orange.png';
 import BirdJuly from '../images/Characters/Bird/Colors/Bird_July.png';
+import BirdStencilColored from '../images/Characters/Bird/Bird_Stencil_colored.png';
 
 import BirdIdle from '../images/Characters/Bird/Faces/Bird_Idle.png';
 import BirdHappy from '../images/Characters/Bird/Faces/Bird_Happy.png';
@@ -21,6 +22,7 @@ import CatWhite from '../images/Characters/Cat/Colors/Cat_White.png';
 import CatYellow from '../images/Characters/Cat/Colors/Cat_Yellow.png';
 import CatOrange from '../images/Characters/Cat/Colors/Cat_Orange.png';
 import CatJuly from '../images/Characters/Cat/Colors/Cat_July.png';
+import CatStencilColored from '../images/Characters/Cat/Cat_Stencil_colored.png';
 
 import CatIdle from '../images/Characters/Cat/Faces/Cat_Idle.png';
 import CatHappy from '../images/Characters/Cat/Faces/Cat_Happy.png';
@@ -35,6 +37,7 @@ import PenguinWhite from '../images/Characters/Penguin/Colors/Penguin_White.png'
 import PenguinYellow from '../images/Characters/Penguin/Colors/Penguin_Yellow.png';
 import PenguinOrange from '../images/Characters/Penguin/Colors/Penguin_Orange.png';
 import PenguinJuly from '../images/Characters/Penguin/Colors/Penguin_July.png';
+import PenguinStencilColored from '../images/Characters/Penguin/Penguin_Stencil_colored.png';
 
 import PenguinIdle from '../images/Characters/Penguin/Faces/Penguin_Idle.png';
 import PenguinHappy from '../images/Characters/Penguin/Faces/Penguin_Happy.png';
@@ -42,131 +45,128 @@ import PenguinSad from '../images/Characters/Penguin/Faces/Penguin_Sad.png';
 import PenguinFear from '../images/Characters/Penguin/Faces/Penguin_Fear.png';
 import PenguinMad from '../images/Characters/Penguin/Faces/Penguin_Mad.png';
 
-function Character({ type, color, emotion, species, updateAnimalAttribute }) {
+function Character({ type, color, emotion }) {
+  let characterImage;
 
-  return(
+  // Determine which character image to use based on type and color
+  switch (type) {
+    case "Bird":
+      switch (color) {
+        case "Blue":
+          characterImage = BirdBlue;
+          break;
+        case "Green":
+          characterImage = BirdGreen;
+          break;
+        case "Red":
+          characterImage = BirdRed;
+          break;
+        case "White":
+          characterImage = BirdWhite;
+          break;
+        case "Yellow":
+          characterImage = BirdYellow;
+          break;
+        case "Orange":
+          characterImage = BirdOrange;
+          break;
+        case "July":
+          characterImage = BirdJuly;
+          break;
+        default:
+          characterImage = BirdStencilColored;
+          break;
+      }
+      break;
+    case "Cat":
+      switch (color) {
+        case "Blue":
+          characterImage = CatBlue;
+          break;
+        case "Green":
+          characterImage = CatGreen;
+          break;
+        case "Red":
+          characterImage = CatRed;
+          break;
+        case "White":
+          characterImage = CatWhite;
+          break;
+        case "Yellow":
+          characterImage = CatYellow;
+          break;
+        case "Orange":
+          characterImage = CatOrange;
+          break;
+        case "July":
+          characterImage = CatJuly;
+          break;
+        default:
+          characterImage = CatStencilColored;
+          break;
+      }
+      break;
+    case "Penguin":
+      switch (color) {
+        case "Blue":
+          characterImage = PenguinBlue;
+          break;
+        case "Green":
+          characterImage = PenguinGreen;
+          break;
+        case "Red":
+          characterImage = PenguinRed;
+          break;
+        case "White":
+          characterImage = PenguinWhite;
+          break;
+        case "Yellow":
+          characterImage = PenguinYellow;
+          break;
+        case "Orange":
+          characterImage = PenguinOrange;
+          break;
+        case "July":
+          characterImage = PenguinJuly;
+          break;
+        default:
+          characterImage = PenguinStencilColored;
+          break;
+      }
+      break;
+    default:
+      break;
+  }
+
+  // Determine which emotion face to overlay on the character image
+  let emotionImage;
+  switch (emotion) {
+    case "Idle":
+      emotionImage = emotion === "Idle" && (type === "Bird" ? BirdIdle : type === "Cat" ? CatIdle : PenguinIdle);
+      break;
+    case "Happy":
+      emotionImage = emotion === "Happy" && (type === "Bird" ? BirdHappy : type === "Cat" ? CatHappy : PenguinHappy);
+      break;
+    case "Sad":
+      emotionImage = emotion === "Sad" && (type === "Bird" ? BirdSad : type === "Cat" ? CatSad : PenguinSad);
+      break;
+    case "Fear":
+      emotionImage = emotion === "Fear" && (type === "Bird" ? BirdFear : type === "Cat" ? CatFear : PenguinFear);
+      break;
+    case "Mad":
+      emotionImage = emotion === "Mad" && (type === "Bird" ? BirdMad : type === "Cat" ? CatMad : PenguinMad);
+      break;
+    default:
+      break;
+  }
+
+  return (
     <div className="Character">
-      {type === "Bird" && <div>
-        {color === "Blue" && <div>
-          <img src={BirdBlue} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Green" && <div>
-          <img src={BirdGreen} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Red" && <div>
-          <img src={BirdRed} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "White" && <div>
-          <img src={BirdWhite} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Yellow" && <div>
-          <img src={BirdYellow} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Orange" && <div>
-          <img src={BirdOrange} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "July" && <div>
-          <img src={BirdJuly} alt="Character" className="currentPlayer"></img>
-        </div>}
-
-        {emotion === "Idle" && <div>
-          <img src={BirdIdle} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Happy" && <div>
-          <img src={BirdHappy} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Sad" && <div>
-          <img src={BirdSad} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Fear" && <div>
-          <img src={BirdFear} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Mad" && <div>
-          <img src={BirdMad} alt="Character" className="currentPlayer"></img>
-        </div>}
-      </div>}
-
-      {type === "Cat" && <div>
-        {color === "Blue" && <div>
-          <img src={CatBlue} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Green" && <div>
-          <img src={CatGreen} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Red" && <div>
-          <img src={CatRed} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "White" && <div>
-          <img src={CatWhite} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Yellow" && <div>
-          <img src={CatYellow} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Orange" && <div>
-          <img src={CatOrange} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "July" && <div>
-          <img src={CatJuly} alt="Character" className="currentPlayer"></img>
-        </div>}
-
-        {emotion === "Idle" && <div>
-          <img src={CatIdle} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Happy" && <div>
-          <img src={CatHappy} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Sad" && <div>
-          <img src={CatSad} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Fear" && <div>
-          <img src={CatFear} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Mad" && <div>
-          <img src={CatMad} alt="Character" className="currentPlayer"></img>
-        </div>}
-      </div>}
-
-      {type === "Penguin" && <div>
-        {color === "Blue" && <div>
-          <img src={PenguinBlue} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Green" && <div>
-          <img src={PenguinGreen} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Red" && <div>
-          <img src={PenguinRed} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "White" && <div>
-          <img src={PenguinWhite} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Yellow" && <div>
-          <img src={PenguinYellow} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "Orange" && <div>
-          <img src={PenguinOrange} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {color === "July" && <div>
-          <img src={PenguinJuly} alt="Character" className="currentPlayer"></img>
-        </div>}
-
-        {emotion === "Idle" && <div>
-          <img src={PenguinIdle} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Happy" && <div>
-          <img src={PenguinHappy} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Sad" && <div>
-          <img src={PenguinSad} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Fear" && <div>
-          <img src={PenguinFear} alt="Character" className="currentPlayer"></img>
-        </div>}
-        {emotion === "Mad" && <div>
-          <img src={PenguinMad} alt="Character" className="currentPlayer"></img>
-        </div>}
-      </div>}
+      <img src={characterImage} alt="Character" className="currentPlayer" 
+       style={{ filter: `brightness(200%) sepia(100%) hue-rotate(${color})` }} />
+      {emotionImage && <img src={emotionImage} alt="Emotion" className="emotionOverlay" />}
     </div>
   );
 }
-
+// b0e02a 
 export default Character;

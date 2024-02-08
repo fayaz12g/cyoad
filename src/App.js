@@ -10,6 +10,29 @@ import Customization from './components/Customization.js';
 import BackgroundMusicAudio from './audio/songs/menu.mp3';
 
 function App() {
+  
+  const handleColorNameChange = (newValue, index) => {
+    const newColors = [...colors];
+    newColors[index].name = newValue;
+    setColors(newColors); // Update the colors array in the parent component
+  };
+    
+  const handleColorHexChange = (newValue, index) => {
+    const newColors = [...colors];
+    newColors[index].hex = newValue;
+    setColors(newColors); // Update the colors array in the parent component
+  };
+
+  const [colors, setColors] = useState([
+    { name: "Red", hex: "#FF0000" },
+    { name: "Orange", hex: "#FFA500" },
+    { name: "Yellow", hex: "#FFFF00" },
+    { name: "Green", hex: "#008000" },
+    { name: "Blue", hex: "#0000FF" },
+    { name: "Purple", hex: "#800080" }
+  ]);
+
+  const specialColors = ["July", "White"];
 
   const [ currentPage, setCurrentPage ] = useState('Home');
 
@@ -124,6 +147,11 @@ function App() {
                                                 setButtonTextSize={setButtonTextSize}
                                                 setGameTextSize={setGameTextSize}
                                                 gameTextSize={gameTextSize}
+                                                colors={colors}
+                                                specialColors={specialColors}
+                                                handleColorNameChange={handleColorNameChange}
+                                                handleColorHexChange={handleColorHexChange}
+                                                setColors={setColors}
                                                 animationSpeed={animationSpeed} >
                                         </Settings>}
       {(currentPage === 'Game') && <Game setCurrentPage={setCurrentPage}
@@ -143,10 +171,15 @@ function App() {
                                         setButtonTextSize={setButtonTextSize}
                                         showButtonPattern={showButtonPattern}
                                         gameTextSize={gameTextSize}
+                                        colors={colors}
+                                        specialColors={specialColors}
                                         setButtonColor={setButtonColor} >
                                    </Game>}
       {(currentPage === 'Selection') && <Selection setCurrentPage={setCurrentPage}
+                                                  colors={colors}
+                                                  specialColors={specialColors}
                                                   updateAnimalAttribute={updateAnimalAttribute}>
+                                                    
                                         </Selection>}
       {(currentPage === 'Customization') && <Customization setCurrentPage={setCurrentPage}
                                                           type={animalType}
@@ -163,6 +196,8 @@ function App() {
                                                           buttonTextSize={buttonTextSize}
                                                           setButtonTextSize={setButtonTextSize}
                                                           showButtonPattern={showButtonPattern}
+                                                          colors={colors}
+                                                          specialColors={specialColors}
                                                           buttonTextColor={buttonTextColor} >
                                             </Customization>}
       <audio ref={audioRef} loop autoPlay>
