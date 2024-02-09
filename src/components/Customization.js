@@ -33,13 +33,13 @@ function Customization({ setCurrentPage, type, color, emotion, species,
   const handleColorSelection = (selectedColor) => {
     const colorBoxes = document.querySelectorAll('.color');
     colorBoxes.forEach(box => {
-      box.style.borderWidth = '1px';
+      box.style.borderWidth = '4px';
       box.style.borderColor = 'black';
     });
   
     const selectedBox = document.querySelector(`.color.${selectedColor.toLowerCase()}`);
     if (selectedBox) {
-      selectedBox.style.borderWidth = '2px';
+      selectedBox.style.borderWidth = '4px';
       selectedBox.style.borderColor = 'lightgreen';
     }
   
