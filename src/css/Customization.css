@@ -4,7 +4,7 @@
 
 .customizationOptions {
   position: fixed; /* or absolute */
-  top: 23vh;
+  top: 11vh;
   left: 15vw; /* or adjust positioning as needed */
   display: flex;
   flex-direction: column;
@@ -20,9 +20,9 @@
   width: 100%;
 }
 
-@media (min-width: 1900px) {
+@media (min-width: 500px) {
   .customizationOptions {
-    left: 1020px; /* Reset left positioning */
+    left: 720px; /* Reset left positioning */
     right: 1px; /* Adjust right positioning as needed */
   }
 }
