@@ -163,7 +163,7 @@ function Character({ type, color, emotion }) {
   return (
     <div className="Character">
       <img src={characterImage} alt="Character" className="currentPlayer" />
-      {emotionImage && <img src={emotionImage} alt="Emotion" className="emotionOverlay" />}
+      {emotionImage && <img src={emotionImage} alt="Emotion" className="currentPlayer" />}
     </div>
   );
 }
