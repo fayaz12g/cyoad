@@ -65,6 +65,14 @@ function App() {
       }
     };
 
+    const handleOrientationChange = () => {
+      if (window.innerWidth < window.innerHeight) {
+        setGameTextSize(2);
+        setButtonTextSize(3);
+      }}
+
+    handleOrientationChange();
+
     if (backgroundMusic) {
       audioRef.current.play();
       audioRef.current.addEventListener('timeupdate', handleTimeUpdate);

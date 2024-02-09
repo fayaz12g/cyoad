@@ -14,7 +14,7 @@
 
 @media screen and (orientation: portrait) {
   .currentPlayer {
-    height: 30vh; 
+    height: 25vh; 
     top: 5vh; 
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Move back by half of its own width */

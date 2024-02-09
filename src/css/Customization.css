@@ -90,22 +90,24 @@
 @media screen and (orientation: portrait) {
   .customizationOptions {
     position: fixed; 
-    top: 34vh;
+    top: 30vh;
     display: flex;
+    margin-right: 0;
+    margin-left: 0;
     flex-direction: column;
     align-items: flex-start;
     bottom: 5vh; /* Position at the bottom for vertical orientation */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Move left by 50% of its own width */
     gap: 2vh; /* Adjust gap between elements */
-    max-width: 120vw;
+    max-width: 100vw;
   }
 
   .color {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border: 1px solid black;
-    margin-right: 1px; /* Add a right margin to create space between color boxes */
+    margin-right: 0px; /* Add a right margin to create space between color boxes */
     margin-bottom: 1px; /* Add a bottom margin to create space between rows */
     cursor: pointer;
   }
@@ -113,6 +115,7 @@
   .customizeTitle {
     font-size: 4vh;
     margin-bottom: 0;
+    margin-right: 0;
   }
 
 }
