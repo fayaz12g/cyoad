@@ -2,13 +2,13 @@
 # Watch the Demo Video!
 
 ![Lycle Logo](src/images/Lycle_Logo.png)
-# [Play now at lycle.co!](https://www.lycle.co)
+# [Create now at cyoad.co!](https://www.cyoad.co)
 
 # [View the Brainstorming & Game Design Docs](https://docs.google.com/document/d/1-T8EkpMqGcWJ6zJtZEbR99Gx8b53dZI3TKYyeSZGf84/edit?usp=sharing)
 
-## What is Lycle?
+## What is Cyoad?
 
-Lycle is a web based React.JS game that follows the Cycle of Life (Life Cycle -> Lycle) with exciting stories as you live through the lives of different animals!
+Cyoad is a web based React.JS game engine that let's users create their own Choose Your Own Adventure games online easily!
 
 ## Why was it built?
 
