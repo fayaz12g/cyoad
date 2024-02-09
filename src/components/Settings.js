@@ -3,6 +3,7 @@ import '../css/Customization.css';
 import BackButton from "./BackButton";
 import React, { useState, useRef, useEffect } from "react";
 import { SketchPicker } from "react-color";
+import TrashIcon from '../images/TrashIcon.png';
 
 function Settings({
   setCurrentPage,
@@ -145,6 +146,13 @@ function Settings({
     const updatedColors = [...colors, newColor];
     setColors(updatedColors);
   };
+  
+  const handleDeleteColor = (index) => {
+    const updatedColors = [...colors];
+    updatedColors.splice(index, 1); // Remove the color at the specified index
+    setColors(updatedColors);
+  };
+
   const handleButtonColorInputClick = () => {
     setShowColorPicker(true);
     // console.log("Color Picker is set to" + showColorPicker);
@@ -357,6 +365,9 @@ function Settings({
             </div>
             {colors.map((color, index) => (
               <div key={index}>
+                <span onClick={() => handleDeleteColor(index)} style={{ cursor: 'pointer' }}>
+                <TrashIcon /> {/* Render the TrashIcon component */}
+                </span>
                 <label htmlFor={`colorNameInput${index}`}>{`Color ${index + 1} Name`}</label>
                 <input
                   type="text"
