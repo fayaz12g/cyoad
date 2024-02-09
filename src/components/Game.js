@@ -171,7 +171,8 @@ buttonTextSize, gameTextSize }) {
   };
   return(
     <div className="Game">
-      <Character type={type} color={color} emotion={emotion} species={species} updateAnimalAttribute={updateAnimalAttribute}/>
+      <Character type={type} color={color} emotion={emotion} species={species} updateAnimalAttribute={updateAnimalAttribute}
+      orientation={window.innerHeight > window.innerWidth ? "portrait" : "landscape"}/>
 
       <div className="progression">
         <div className={`story ${color}`}style={{fontSize: gameTextSize +'vh'}}>{getOptionById(type, id).story}</div>

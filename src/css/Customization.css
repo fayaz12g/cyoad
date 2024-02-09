@@ -86,3 +86,33 @@
   padding: 2vh;
   background-color: #a3c78d;
 }
+
+@media screen and (orientation: portrait) {
+  .customizationOptions {
+    position: fixed; 
+    top: 34vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    bottom: 5vh; /* Position at the bottom for vertical orientation */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Move left by 50% of its own width */
+    gap: 2vh; /* Adjust gap between elements */
+    max-width: 120vw;
+  }
+
+  .color {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    margin-right: 1px; /* Add a right margin to create space between color boxes */
+    margin-bottom: 1px; /* Add a bottom margin to create space between rows */
+    cursor: pointer;
+  }
+
+  .customizeTitle {
+    font-size: 4vh;
+    margin-bottom: 0;
+  }
+
+}

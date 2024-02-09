@@ -45,7 +45,7 @@ import PenguinSad from '../images/Characters/Penguin/Faces/Penguin_Sad.png';
 import PenguinFear from '../images/Characters/Penguin/Faces/Penguin_Fear.png';
 import PenguinMad from '../images/Characters/Penguin/Faces/Penguin_Mad.png';
 
-function Character({ type, color, emotion }) {
+function Character({ type, color, emotion, orientation }) {
   let characterImage;
 
   // Determine which character image to use based on type and color
