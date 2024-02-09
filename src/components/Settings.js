@@ -3,7 +3,7 @@ import '../css/Customization.css';
 import BackButton from "./BackButton";
 import React, { useState, useRef, useEffect } from "react";
 import { SketchPicker } from "react-color";
-import TrashIcon from '../images/TrashIcon.png';
+import TrashIcon from '../images/trash.png';
 
 function Settings({
   setCurrentPage,
@@ -364,30 +364,30 @@ function Settings({
               Animal Fill Colors
             </div>
             {colors.map((color, index) => (
-              <div key={index}>
-                <span onClick={() => handleDeleteColor(index)} style={{ cursor: 'pointer' }}>
-                <TrashIcon /> {/* Render the TrashIcon component */}
-                </span>
-                <label htmlFor={`colorNameInput${index}`}>{`Color ${index + 1} Name`}</label>
-                <input
-                  type="text"
-                  id={`colorNameInput${index}`}
-                  value={color.name}
-                  onChange={(e) => handleColorNameChange(e.target.value, index)} 
-                />
-                <label htmlFor={`colorHexInput${index}`}>{`Color ${index + 1} Hex`}</label>
-                <input
-                  type="text"
-                  id={`colorHexInput${index}`}
-                  value={color.hex}
-                  onChange={(e) => handleColorHexChange(e.target.value, index)} 
-                />
-                <div
-                  className="colorBox"
-                  style={{ backgroundColor: color.hex }}
-                ></div>
-              </div>
-              ))}
+            <div key={index} style={{ textAlign: 'left' }}>
+              <span onClick={() => handleDeleteColor(index)} style={{ cursor: 'pointer' }}>
+                <img src={TrashIcon} alt="Delete" style={{ width: '20px', height: '20px' }} /> 
+              </span>
+              <input
+                type="text"
+                id={`colorNameInput${index}`}
+                value={color.name}
+                onChange={(e) => handleColorNameChange(e.target.value, index)} 
+              />
+              <label htmlFor={`colorHexInput${index}`}>{color.name}</label>
+              <input
+                type="text"
+                id={`colorHexInput${index}`}
+                value={color.hex}
+                onChange={(e) => handleColorHexChange(e.target.value, index)} 
+              />
+              <div
+                className="colorBox"
+                style={{ backgroundColor: color.hex }}
+              ></div>
+            </div>
+          ))}
+
               <button
                 className="createColorButton"
                 style={{ ...gameButtonStyle, margin: "3vh" }}
