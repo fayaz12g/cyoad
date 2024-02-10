@@ -9,7 +9,7 @@
 .Character {
   display:inline-block;
   justify-content: 'center';
-  align-items: 'center'
+  align-items: 'center';
 }
 
 @media screen and (orientation: portrait) {

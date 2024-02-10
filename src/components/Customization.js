@@ -14,7 +14,7 @@ function Customization({ setCurrentPage, type, color, emotion, species,
     updateAnimalAttribute("emotion", "Happy");
     setTimeout(() => {
       updateAnimalAttribute("emotion", "Idle");
-    }, 2000);
+    }, 4000);
   }
 
   const [prevColor, setPrevColor] = useState("White");
@@ -44,7 +44,6 @@ function Customization({ setCurrentPage, type, color, emotion, species,
     }
   
     setPrevColor(color);
-    animalChangeColor(selectedColor);
   };
 
   
@@ -62,8 +61,10 @@ function Customization({ setCurrentPage, type, color, emotion, species,
               key={c.name}
               className={`color ${c.name.toLowerCase()} ${color === c.name ? "selected" : ""}`}
               style={{ backgroundColor: c.hex }}
-              onClick={() => handleColorSelection(c.name)}
-              onMouseEnter={(e) => {animalChangeColor(c.name); e.target.style.borderColor = 'lightgreen';}}
+              onClick={() => {
+                handleColorSelection(c.name)
+                animalChangeColor(c.hex)}}
+              onMouseEnter={(e) => {animalChangeColor(c.hex); e.target.style.borderColor = 'lightgreen';}}
               onMouseLeave={(e) => {animalChangeColor(prevColor);   if (color !== e.name) {e.target.style.borderColor = 'black';}}}
             ></div>
           ))}
