@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../css/Character.css';
-import CatStencilColored from '../images/Characters/Cat/Cat_Stencil_colored.png'; // Import the base stencil image
+import CatStencilColored from '../images/Characters/Cat/Cat_Stencil_colored.png';
+import PenguinStencilColored from '../images/Characters/Penguin/Penguin_Stencil_colored.png';
+import BirdStencilColored from '../images/Characters/Bird/Bird_Stencil_colored.png';
 import BirdIdle from '../images/Characters/Bird/Faces/Bird_Idle.png';
 import BirdHappy from '../images/Characters/Bird/Faces/Bird_Happy.png';
 import BirdSad from '../images/Characters/Bird/Faces/Bird_Sad.png';
@@ -25,14 +27,17 @@ function Character({ type, color, emotion, orientation }) {
     if (canvasRef.current) {
       const ctx = canvasRef.current.getContext('2d');
       const img = new Image();
-      const modifiedSrc = `${CatStencilColored}?t=${Date.now()}`; // Append timestamp to the image source URL
+      const CatCourse = CatStencilColored
+      const PenguinCourse = PenguinStencilColored
+      const BirdCourse = BirdStencilColored
+      const modifiedSrc = `${eval(`${type}Course`)}?t=${Date.now()}`;
       img.src = modifiedSrc;
       img.onload = () => {
         ctx.drawImage(img, 0, 0, canvasRef.current.width, canvasRef.current.height);
         const imageData = ctx.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height);
         const data = imageData.data;
         // console.log("current color is " + color)
-        const hexColor = color.startsWith('#') ? color : `#FF0000`; // Ensure color is in hex format
+        const hexColor = color.startsWith('#') ? color : `#FFFFFF`; // Ensure color is in hex format
         const rgbColor = hexToRgb(hexColor);
         
         // Replace all pixels with the color b0e02a (hex color for "green") with the provided color
@@ -88,7 +93,11 @@ function Character({ type, color, emotion, orientation }) {
     <div className="Character">
       <img src={characterImage} alt="Character" className="currentPlayer" />
       {emotionImage && <img src={emotionImage} alt="Emotion" className="currentPlayer" />}
+      {type === "Cat" ? (
       <canvas ref={canvasRef} width={2300} height={2000} style={{ display: 'none' }} />
+    ) : (
+      <canvas ref={canvasRef} width={2100} height={2000} style={{ display: 'none' }} />
+    )}
     </div>
   );
 }
