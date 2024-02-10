@@ -52,7 +52,7 @@ function Customization({ setCurrentPage, type, color, emotion, species,
       <Character type={type} color={color} emotion={emotion} species={species} updateAnimalAttribute={updateAnimalAttribute}/>
 
       <div className="customizationOptions">
-        <div className="customizeTitle">Customize Your Character</div>
+        <div className="customizeTitle">Customize Character</div>
         <div className="colorLabel">Color</div>
         <div className="colorSelection">
           {/* Generate color options */}
