@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.6b573ebc.css",
-    "main.js": "/static/js/main.c7214d3c.js",
+    "main.js": "/static/js/main.55c4ff56.js",
     "static/media/menu.mp3": "/static/media/menu.30aa4fc9dbad54c96ba9.mp3",
     "static/media/Lycle_Logo.png": "/static/media/Lycle_Logo.cff231ca0cef76235467.png",
     "static/media/Penguin_Stencil.png": "/static/media/Penguin_Stencil.8816ade4c8fd518ab834.png",
@@ -14,7 +14,7 @@
     "static/media/Penguin_Fear.png": "/static/media/Penguin_Fear.b5be976a9917204793e3.png",
     "static/media/Penguin_Idle.png": "/static/media/Penguin_Idle.4da583f0609df1425952.png",
     "static/media/Bird_Stencil.png": "/static/media/Bird_Stencil.03f20d7246465b459fb4.png",
-    "static/media/Bird_Stencil_colored.png": "/static/media/Bird_Stencil_colored.03f20d7246465b459fb4.png",
+    "static/media/Bird_Stencil_colored.png": "/static/media/Bird_Stencil_colored.b7c1b4b7bcdfdffca727.png",
     "static/media/back_button.png": "/static/media/back_button.1eb2f1325b3793fdeb94.png",
     "static/media/cat_fear.mp3": "/static/media/cat_fear.951009bd1270579dda0e.mp3",
     "static/media/penguin_fear.mp3": "/static/media/penguin_fear.7ce77f75cf1e2c3bbf4b.mp3",
@@ -37,10 +37,10 @@
     "static/media/bird_fear.mp3": "/static/media/bird_fear.5bd12a6128e538befd35.mp3",
     "index.html": "/index.html",
     "main.6b573ebc.css.map": "/static/css/main.6b573ebc.css.map",
-    "main.c7214d3c.js.map": "/static/js/main.c7214d3c.js.map"
+    "main.55c4ff56.js.map": "/static/js/main.55c4ff56.js.map"
   },
   "entrypoints": [
     "static/css/main.6b573ebc.css",
-    "static/js/main.c7214d3c.js"
+    "static/js/main.55c4ff56.js"
   ]
 }
